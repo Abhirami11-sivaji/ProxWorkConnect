@@ -65,8 +65,17 @@ public final class Workertype_jsp extends org.apache.jasper.runtime.HttpJspBase
 
           if(request.getParameter("save")!=null)
           {
+              if(request.getParameter("typeid").equals(""))
+              {   
               String insqry="insert into tbl_workertype(workertype_name)values('"+request.getParameter("typename")+"')";
               con.executeCommand(insqry);
+              }
+              else
+              {
+                  String upqry="update tbl_workertype set workertype_name='"+request.getParameter("typename")+"' where workertype_id='"+request.getParameter("typeid")+"'";
+                  con.executeCommand(upqry);
+                  response.sendRedirect("Workertype.jsp");
+              }
           }
           if(request.getParameter("did")!=null)
           {
@@ -74,13 +83,28 @@ public final class Workertype_jsp extends org.apache.jasper.runtime.HttpJspBase
               con.executeCommand(delqry);
               response.sendRedirect("Workertype.jsp");
           }
+          String editid="";
+          String editname="";
+          if(request.getParameter("eid")!=null)
+          {
+              String selqry1="select * from tbl_workertype where workertype_id='"+request.getParameter("eid")+"'";  
+              ResultSet rs1=con.selectCommand(selqry1);
+              rs1.next();
+              editid=rs1.getString("workertype_id");
+              editname=rs1.getString("workertype_name");
+          }
         
       out.write("\n");
       out.write("        <form method=\"post\">\n");
       out.write("            <table border=\"3\" align=\"center\">\n");
       out.write("                <tr>\n");
       out.write("                <td>Worker Type</td>\n");
-      out.write("                <td><input type=\"text\" name=\"typename\"></td>\n");
+      out.write("                <td><input type=\"text\" name=\"typename\" value=\"");
+      out.print(editname);
+      out.write("\">\n");
+      out.write("                    <input type=\"hidden\" name=\"typeid\" value=\"");
+      out.print(editid);
+      out.write("\"></td>\n");
       out.write("                </tr>\n");
       out.write("                \n");
       out.write("                <tr>\n");

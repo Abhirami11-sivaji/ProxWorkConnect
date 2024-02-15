@@ -16,8 +16,17 @@
          <%
           if(request.getParameter("save")!=null)
           {
+              if(request.getParameter("typeid").equals(""))
+              {   
               String insqry="insert into tbl_workertype(workertype_name)values('"+request.getParameter("typename")+"')";
               con.executeCommand(insqry);
+              }
+              else
+              {
+                  String upqry="update tbl_workertype set workertype_name='"+request.getParameter("typename")+"' where workertype_id='"+request.getParameter("typeid")+"'";
+                  con.executeCommand(upqry);
+                  response.sendRedirect("Workertype.jsp");
+              }
           }
           if(request.getParameter("did")!=null)
           {
@@ -40,7 +49,8 @@
             <table border="3" align="center">
                 <tr>
                 <td>Worker Type</td>
-                <td><input type="text" name="typename"></td>
+                <td><input type="text" name="typename" value="<%=editname%>">
+                    <input type="hidden" name="typeid" value="<%=editid%>"></td>
                 </tr>
                 
                 <tr>
