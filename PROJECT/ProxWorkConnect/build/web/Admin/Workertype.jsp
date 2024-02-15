@@ -49,7 +49,7 @@
             <table border="3" align="center">
                 <tr>
                 <td>Worker Type</td>
-                <td><input type="text" name="typename" value="<%=editname%>">
+                <td><input type="text" name="typename" value="<%=editname%>" placeholder="Enter Worker Type">
                     <input type="hidden" name="typeid" value="<%=editid%>"></td>
                 </tr>
                 

@@ -20,7 +20,7 @@
                         <input type="text" name="txtname" placeholder="Enter Name">
                     </td>
                 </tr>
-                <!<tr>
+                <tr>
                     <td>Contact</td>
                     <td>
                         <input type="text" name="txtcontact" placeholder="Enter Contact No">
@@ -32,35 +32,91 @@
                         <input type="email" name="txtemail" placeholder="Enter Email-Id">
                     </td>
                 </tr>
+                
+                
+                 <tr><td>Address</td>
+                     <td><textarea name="address" rows="3" cols="10"></textarea>
+                 </tr>
                 <tr>
-                    <td>Gender</td>
+                    <tr>
+                    <td>DOB</td>
+                    <td>
+                        <input type="text" name="txtdob"placeholder="Enter DateOfBirth" >
+                    </td>
+                </tr>
+                 <tr>
+                    <td>Work Post</td>
+                    <td>
+                        <select name="ddlLoc">
+                            <option>--select--</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Title</td>
+                    <td>
+                        <input type="text" name="txtdob"placeholder="Enter Complaint Title" >
+                    </td>
+                </tr>
+                 <tr><td>Content</td>
+                     <td><textarea name="reqdetails" rows="3" cols="25"></textarea>
+                 </tr>
+                 <tr><td>Reply</td>
+                     <td><textarea name="reqdetails" rows="3" cols="20"></textarea>
+                 </tr>
+                
+                <tr>
+                    <td>Image Gallery</td>
+                    <td align="center">
+                        <input type="file" name="txtphoto">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Duration</td>
+                    <td>
+                        <input type="text" name="txtname" placeholder="Enter work duration">
+                    </td>
+                </tr>
+                <tr>
+                  <td>Gender</td>
                     <td>
                         Male<input type="radio" name="txtmale">
                         Female<input type="radio" name="txtfemale">
                         Others<input type="radio" name="txtothers">
                     </td>
                 </tr>
+              
                 <tr>
-                    <td>Photo</td>
-                    <td align="center">
-                        <input type="file" name="txtphoto">
+                 <tr>
+                    <td>Password</td>
+                    <td>
+                        <input type="password" name="txtpsswd" placeholder="Enter Password">
                     </td>
                 </tr>
                 <tr>
-                    <td>HouseNo</td>
+                    <td>District</td>
                     <td>
-                        <input type="text" name="txthno"placeholder="Enter HouseNo" >
+                        <select name="ddlLoc">
+                            <option>--select--</option>
+                        </select>
+                    </td>
+                </tr>
+                    <td>Place</td>
+                    <td>
+                        <select name="ddlplace">
+                            <option>--select--</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td>Location</td>
                     <td>
-                        <select name="ddlLoc">
-                            <option>--select location--</option>
+                        <select name="ddlloc">
+                            <option>--select--</option>
                         </select>
                     </td>
                 </tr>
-                <tr>
+                <!--<tr>
                     <td>Ward</td>
                     <td>
                         <select name="ddlWard">
@@ -79,7 +135,7 @@
                     <td>
                         <input type="password" name="txtpsswd" placeholder="ReEnter Password">
                     </td>
-                </tr>         
+                </tr> -->        
                 <tr>
                     <td colspan="2" align="center">
                         <input type="submit" name="txtsave" value="Save">

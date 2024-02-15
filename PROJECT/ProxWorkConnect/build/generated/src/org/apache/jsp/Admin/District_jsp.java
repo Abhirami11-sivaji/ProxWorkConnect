@@ -58,7 +58,7 @@ public final class District_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>District</title>\n");
+      out.write("        <title>District Page</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        ");
@@ -101,7 +101,7 @@ public final class District_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <td>District</td>\n");
       out.write("                <td><input type=\"text\" name=\"disname\" value=\"");
       out.print(editname);
-      out.write("\">\n");
+      out.write("\" placeholder=\"Enter name\">\n");
       out.write("                    <input type=\"hidden\" name=\"disid\" value=\"");
       out.print(editid);
       out.write("\">\n");
@@ -136,7 +136,7 @@ public final class District_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                         <td>");
       out.print(rs.getString("district_name"));
       out.write("</td>\n");
-      out.write("                         <td><a href=\"District.jsp?did=");
+      out.write("                          <td><a href=\"District.jsp?did=");
       out.print(rs.getString("district_id"));
       out.write("\">Delete</a>\n");
       out.write("                         |<a href=\"District.jsp?eid=");

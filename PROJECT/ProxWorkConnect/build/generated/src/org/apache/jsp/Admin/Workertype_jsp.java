@@ -101,7 +101,7 @@ public final class Workertype_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <td>Worker Type</td>\n");
       out.write("                <td><input type=\"text\" name=\"typename\" value=\"");
       out.print(editname);
-      out.write("\">\n");
+      out.write("\" placeholder=\"Enter Worker Type\">\n");
       out.write("                    <input type=\"hidden\" name=\"typeid\" value=\"");
       out.print(editid);
       out.write("\"></td>\n");

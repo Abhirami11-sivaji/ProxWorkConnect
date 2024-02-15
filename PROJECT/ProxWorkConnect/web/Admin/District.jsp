@@ -49,7 +49,7 @@
             <table border="3" align="center">
                 <tr>
                 <td>District</td>
-                <td><input type="text" name="disname" value="<%=editname%>">
+                <td><input type="text" name="disname" value="<%=editname%>" placeholder="Enter name">
                     <input type="hidden" name="disid" value="<%=editid%>">
                 </td>
                 </tr>
@@ -76,7 +76,7 @@
                      <tr>
                          <td><%=i%></td>
                          <td><%=rs.getString("district_name")%></td>
-                         <td><a href="District.jsp?did=<%=rs.getString("district_id")%>">Delete</a>
+                          <td><a href="District.jsp?did=<%=rs.getString("district_id")%>">Delete</a>
                          |<a href="District.jsp?eid=<%=rs.getString("district_id")%>">Edit</a></td>
                      </tr>
                      <%

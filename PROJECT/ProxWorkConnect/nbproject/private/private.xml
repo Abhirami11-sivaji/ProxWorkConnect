@@ -3,12 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/Basics/Largsmall.jsp</file>
-            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/src/java/DB/ConnectionClass.java</file>
-            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/Admin/Workertype.jsp</file>
-            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/index.html</file>
+            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/Admin/WorkerVerification.jsp</file>
+            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/Worker/WorkPost.jsp</file>
+            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/Assets/AjaxPages/AjaxPlaces.jsp</file>
+            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/Guest/Login.jsp</file>
+            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/User/Searchworker.jsp</file>
+            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/Guest/WorkerRegistration.jsp</file>
+            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/Assets/ActionPages/WorkGalleryUploadAction.jsp</file>
+            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/Worker/WorkGalleryDisplay.jsp</file>
+            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/Worker/WorkPostDisplay.jsp</file>
+            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/Admin/Place.jsp</file>
+            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/Admin/Location.jsp</file>
             <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/Admin/District.jsp</file>
-            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/Basics/Calculator.jsp</file>
+            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/Assets/ActionPages/WorkPostUploadAction.jsp</file>
+            <file>file:/D:/ProxWorkConnect/PROJECT/ProxWorkConnect/web/Worker/WorkGallery.jsp</file>
         </group>
     </open-files>
 </project-private>
