@@ -98,8 +98,8 @@
                     }
 
                 }
-                String str1 = "insert into tbl_workpost(workpost_image,workpost_duration,workpost_date,worker_id)"
-                        + "values('" + ph + "','" + value[0] + "',curdate(),'"+session.getAttribute("wid")+"')";
+                String str1 = "insert into tbl_workpost(workpost_image,workpost_details,workpost_duration,workpost_date,worker_id)"
+                        + "values('" + ph + "','" + value[0] + "','" + value[1] + "',curdate(),'"+session.getAttribute("wid")+"')";
 
                 System.out.println(str1);       
 

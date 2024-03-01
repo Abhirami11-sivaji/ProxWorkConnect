@@ -138,16 +138,16 @@ public final class Searchworker_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("                <table border=\"1\" align=\"center\">\n");
       out.write("                <tr>\n");
       out.write("                    <th>Sl.no</th>\n");
-      out.write("                    <th>District</th>\n");
-      out.write("                    <th>Place</th>\n");
+      out.write("                    <th>Name</th>\n");
       out.write("                    <th>Workertype</th>\n");
-      out.write("                    <th>Action</th>\n");
+      out.write("                    <th>Contact</th>\n");
+      out.write("                    <th>Works</th>\n");
+      out.write("                    <th>Request</th>\n");
       out.write("                </tr>\n");
       out.write("                ");
 
                   if(request.getParameter("search")!=null){
                  String selectqry="select * from tbl_worker w inner join tbl_place p on p.place_id=w.place_id inner join tbl_workertype t on t.workertype_id=w.workertype_id inner join tbl_district d on d.district_id=p.district_id where p.place_id='"+request.getParameter("ddlplace")+"' and t.workertype_id='"+request.getParameter("ddltype")+"'";
-                 out.println(selectqry);
                  ResultSet r=con.selectCommand(selectqry);
                 
                  int i=0;
@@ -161,15 +161,17 @@ public final class Searchworker_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.print(i);
       out.write("</td>\n");
       out.write("                   <td>");
-      out.print(r.getString("district_name"));
-      out.write("</td> \n");
-      out.write("                 <td>");
-      out.print(r.getString("place_name"));
+      out.print(r.getString("worker_name"));
       out.write("</td> \n");
       out.write("                 <td>");
       out.print(r.getString("workertype_name"));
       out.write("</td> \n");
+      out.write("                 <td>");
+      out.print(r.getString("worker_contact"));
+      out.write("</td> \n");
       out.write("                 \n");
+      out.write("                 <td><a href=\" \">View Works</a>\n");
+      out.write("                 <td><a href=\" \">Request Now</a>\n");
       out.write("                 </tr>\n");
       out.write("                  ");
 

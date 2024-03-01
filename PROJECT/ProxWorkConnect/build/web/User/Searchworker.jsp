@@ -72,15 +72,15 @@
                 <table border="1" align="center">
                 <tr>
                     <th>Sl.no</th>
-                    <th>District</th>
-                    <th>Place</th>
+                    <th>Name</th>
                     <th>Workertype</th>
-                    <th>Action</th>
+                    <th>Contact</th>
+                    <th>Works</th>
+                    <th>Request</th>
                 </tr>
                 <%
                   if(request.getParameter("search")!=null){
                  String selectqry="select * from tbl_worker w inner join tbl_place p on p.place_id=w.place_id inner join tbl_workertype t on t.workertype_id=w.workertype_id inner join tbl_district d on d.district_id=p.district_id where p.place_id='"+request.getParameter("ddlplace")+"' and t.workertype_id='"+request.getParameter("ddltype")+"'";
-                 out.println(selectqry);
                  ResultSet r=con.selectCommand(selectqry);
                 
                  int i=0;
@@ -90,10 +90,12 @@
                      %>
                      <tr>
                          <td><%=i%></td>
-                   <td><%=r.getString("district_name")%></td> 
-                 <td><%=r.getString("place_name")%></td> 
+                   <td><%=r.getString("worker_name")%></td> 
                  <td><%=r.getString("workertype_name")%></td> 
+                 <td><%=r.getString("worker_contact")%></td> 
                  
+                 <td><a href=" ">View Works</a>
+                 <td><a href=" ">Request Now</a>
                  </tr>
                   <%
                  }

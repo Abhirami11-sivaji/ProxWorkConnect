@@ -24,6 +24,11 @@
                     </td>
        </tr>
        <tr>
+                        <td>Details</td>
+                        <td align="center">
+                            <textarea name="txt_details" id="txt_details" cols="45" rows="5"></textarea></td>
+                    </tr>
+       <tr>
                    <td>Duration</td>
                     <td>
                         <input type="text" name="duration" placeholder="Enter duration of work" required>
