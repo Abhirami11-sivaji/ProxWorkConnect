@@ -94,7 +94,7 @@
                  <td><%=r.getString("workertype_name")%></td> 
                  <td><%=r.getString("worker_contact")%></td> 
                  
-                 <td><a href=" ">View Works</a>
+                 <td><a href="ViewWork.jsp?sid=<%=r.getString("worker_id")%> ">View Works</a>
                  <td><a href=" ">Request Now</a>
                  </tr>
                   <%

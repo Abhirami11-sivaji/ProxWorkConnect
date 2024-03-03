@@ -100,7 +100,7 @@
                          <td><%=r.getString("worker_contact")%></td>
                          <td><%=r.getString("workpost_date")%></td>
                  
-                 <td><a href=" ">View More Photos</a>
+                 <td><a href="ViewWorkBooking.jsp?sid=<%=r.getString("workpost_id")%> "> View Gallery</a>
                  <td><a href=" ">Book Now</a>
                  </tr>
                   <%

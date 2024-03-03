@@ -150,7 +150,7 @@ public final class Searchwork_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                ");
 
                   if(request.getParameter("search")!=null){
-                 String selectqry="select * from tbl_workpost p inner join tbl_worker w on w.worker_id=p.worker_id inner join tbl_workertype t on t.workertype_id=w.workertype_id inner join tbl_place pla on pla.place_id=w.place_id inner join tbl_district d on d.district_id=pla.district_id where w.place_id='"+request.getParameter("ddlplace")+"'";
+                 String selectqry="select * from tbl_workpost p inner join tbl_worker w on w.worker_id=p.worker_id inner join tbl_workertype t on t.workertype_id=w.workertype_id inner join tbl_place pla on pla.place_id=w.place_id inner join tbl_district d on d.district_id=pla.district_id where w.place_id='"+request.getParameter("ddlplace")+"' and t.workertype_id='"+request.getParameter("ddltype")+"'";
                  ResultSet r=con.selectCommand(selectqry);
                 
                  int i=0;
@@ -182,7 +182,9 @@ public final class Searchwork_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.print(r.getString("workpost_date"));
       out.write("</td>\n");
       out.write("                 \n");
-      out.write("                 <td><a href=\" \">View More Photos</a>\n");
+      out.write("                 <td><a href=\"ViewWorkBooking.jsp?sid=");
+      out.print(r.getString("worker_id"));
+      out.write(" \"> View Gallery</a>\n");
       out.write("                 <td><a href=\" \">Book Now</a>\n");
       out.write("                 </tr>\n");
       out.write("                  ");

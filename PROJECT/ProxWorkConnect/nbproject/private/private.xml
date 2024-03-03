@@ -5,10 +5,14 @@
         <group>
             <file>file:/D:/ProxWorkConnect%20Backup/PROJECT/ProxWorkConnect/web/Worker/WorkPost.jsp</file>
             <file>file:/D:/ProxWorkConnect%20Backup/PROJECT/ProxWorkConnect/web/User/Searchwork.jsp</file>
+            <file>file:/D:/ProxWorkConnect%20Backup/PROJECT/ProxWorkConnect/web/User/ViewWorkBooking.jsp</file>
+            <file>file:/D:/ProxWorkConnect%20Backup/PROJECT/ProxWorkConnect/web/Worker/WorkGalleryDisplay.jsp</file>
             <file>file:/D:/ProxWorkConnect%20Backup/PROJECT/ProxWorkConnect/web/Assets/ActionPages/WorkPostUploadAction.jsp</file>
             <file>file:/D:/ProxWorkConnect%20Backup/PROJECT/ProxWorkConnect/web/Guest/Login.jsp</file>
             <file>file:/D:/ProxWorkConnect%20Backup/PROJECT/ProxWorkConnect/web/User/Searchworker.jsp</file>
             <file>file:/D:/ProxWorkConnect%20Backup/PROJECT/ProxWorkConnect/web/Worker/WorkPostDisplay.jsp</file>
+            <file>file:/D:/ProxWorkConnect%20Backup/PROJECT/ProxWorkConnect/web/Assets/AjaxPages/AjaxPlaces.jsp</file>
+            <file>file:/D:/ProxWorkConnect%20Backup/PROJECT/ProxWorkConnect/web/User/ViewWork.jsp</file>
             <file>file:/D:/ProxWorkConnect%20Backup/PROJECT/ProxWorkConnect/web/User/UserHomePage.jsp</file>
         </group>
     </open-files>

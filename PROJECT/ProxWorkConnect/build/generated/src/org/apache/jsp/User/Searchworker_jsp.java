@@ -170,7 +170,9 @@ public final class Searchworker_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.print(r.getString("worker_contact"));
       out.write("</td> \n");
       out.write("                 \n");
-      out.write("                 <td><a href=\" \">View Works</a>\n");
+      out.write("                 <td><a href=\"ViewWork.jsp?sid=");
+      out.print(r.getString("worker_id"));
+      out.write(" \">View Works</a>\n");
       out.write("                 <td><a href=\" \">Request Now</a>\n");
       out.write("                 </tr>\n");
       out.write("                  ");
