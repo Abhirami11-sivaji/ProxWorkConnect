@@ -60,10 +60,14 @@
                               {
                                  out.println("Work started"); 
                               }
+                              else if(rs.getString("request_status").equals("4"))
+                              {
+                                 out.println("Work completed"); 
+                              }
                        %>  </td>
                          <td>
                              <%
-                               if (rs.getInt("request_status")==1)
+                               if(rs.getString("request_status").equals("4")) 
                                 {
                               %>
                                 <a href="">Pay Now</a> 

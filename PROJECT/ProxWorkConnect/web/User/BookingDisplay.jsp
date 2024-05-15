@@ -53,10 +53,18 @@
                                 {
                                     out.println("Request rejected");
                                 }
-                       %>  </td>
+                               else if (rs.getInt("request_status")==3)
+                                {
+                                    out.println("Work started");
+                                }
+                               else if (rs.getInt("request_status")==4)
+                                {
+                                    out.println("Work completed");
+                                }
+                       %>   </td>
                          <td>
                              <%
-                               if (rs.getInt("request_status")==1)
+                               if (rs.getInt("request_status")==4) 
                                 {
                               %>
                               Contact : <%=rs.getString("worker_contact")%><br>

@@ -42,8 +42,7 @@
                   if(con.executeCommand(upqry)){
                   response.sendRedirect("RequestAction.jsp");
          }
-         }
-         
+         }         
         %>
         <div align="center">
         <h2>New Requests</h2>
@@ -99,7 +98,7 @@
                      
                 </tr>
         <%
-                 String selqry1="select * from tbl_workrequest w inner join tbl_user u on u.user_id=w.user_id where w.request_status='1' or w.request_status='3'";
+                 String selqry1="select * from tbl_workrequest w inner join tbl_user u on u.user_id=w.user_id where w.request_status='1' or w.request_status='3' or w.request_status='4'";
                  ResultSet rs1=con.selectCommand(selqry1);
                  int j=0;
                  while(rs1.next())
@@ -116,18 +115,27 @@
                          <td><%=rs1.getString("request_date")%></td>
                          
                          <td>
-                         <a href="RequestAction.jsp?tid=<%=rs1.getString("workrequest_id")%>">Start work</a>
                       
                     <%
+                    if(rs1.getString("request_status").equals("1"))
+                    {
+                    %>
+                    <a href="RequestAction.jsp?tid=<%=rs1.getString("workrequest_id")%>">Start work</a>|<a href="RequestAction.jsp?rid=<%=rs1.getString("workrequest_id")%>">Reject</a>
+                    <%
+                    }
                     if(rs1.getString("request_status").equals("3"))
                     {
                     %>
-                    <a href="RequestAction.jsp?fid=<%=rs1.getString("workrequest_id")%>">Work ended</a>
+                    <a href="RequestAction.jsp?fid=<%=rs1.getString("workrequest_id")%>">End work</a>
                     <%
+                    }
+                    if(rs1.getString("request_status").equals("4"))
+                    {
+                       out.println("Waiting for payment");
                     }
                     %>
                          </td>
-                         <td><a href="RequestAction.jsp?rid=<%=rs1.getString("workrequest_id")%>">Reject</a></td>
+                        
                      </tr>
                      <%
                  }
@@ -136,7 +144,7 @@
              <h2>Rejected Requests</h2>         
                   <table border="1" align="center">
                 <tr>
-                   <th>Sl.no</th>
+                    <th>Sl.no</th>
                     <th>Request From</th>
                     <th>Work Date</th>
                     <th>Work Details</th>

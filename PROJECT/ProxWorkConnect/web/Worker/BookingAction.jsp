@@ -29,7 +29,20 @@
                   response.sendRedirect("BookingAction.jsp");
          }
          }
-         
+         if(request.getParameter("tid")!=null)
+         {
+                  String upqry="update tbl_workpostrequest set request_status='3' where request_id='"+request.getParameter("tid")+"'";
+                  if(con.executeCommand(upqry)){
+                  response.sendRedirect("BookingAction.jsp");
+         }
+         }
+         if(request.getParameter("fid")!=null)
+         {
+                  String upqry="update tbl_workpostrequest set request_status='4' where request_id='"+request.getParameter("fid")+"'";
+                  if(con.executeCommand(upqry)){
+                  response.sendRedirect("BookingAction.jsp");
+         }
+         }
         %>
         <div align="center">
         <h2>New Bookings</h2>
@@ -83,7 +96,7 @@
                     <th>Action</th>  
                 </tr>
         <%
-                 String selqry1="select * from tbl_workpostrequest w inner join tbl_user u on u.user_id=w.user_id where w.request_status='1'";
+                 String selqry1="select * from tbl_workpostrequest w inner join tbl_user u on u.user_id=w.user_id where w.request_status='1' or w.request_status='3' or w.request_status='4'";
                  ResultSet rs1=con.selectCommand(selqry1);
                  int j=0;
                  while(rs1.next())
@@ -98,13 +111,31 @@
                          <td><%=rs1.getString("address")%></td>
                          <td><%=rs1.getString("user_contact")%></td>
                          <td><%=rs1.getString("request_date")%></td>
-                         
-                          <td>
-                         <a href="BookingAction.jsp?rid=<%=rs1.getString("request_id")%>">Reject</a></td>
+                         <td>
+                    <%
+                    if(rs1.getString("request_status").equals("1"))
+                    {
+                    %>
+                    <a href="BookingAction.jsp?tid=<%=rs1.getString("request_id")%>">Start work</a>|<a href="BookingAction.jsp?rid=<%=rs1.getString("request_id")%>">Reject</a>
+                    <%
+                    }
+                    if(rs1.getString("request_status").equals("3"))
+                    {
+                    %>
+                    <a href="BookingAction.jsp?fid=<%=rs1.getString("request_id")%>">End work</a>
+                    <%
+                    }
+                    if(rs1.getString("request_status").equals("4"))
+                    {
+                       out.println("Waiting for payment");
+                    }
+                    %>
+                         </td>
+                        
                      </tr>
                      <%
                  }
-                     %>      
+                     %>       
              </table>
              <h2>Rejected Requests</h2>         
                   <table border="1" align="center">
