@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Request
-    Created on : 1 Mar, 2024, 2:41:24 PM
+    Document   : Booking.jsp
+    Created on : 14 May, 2024, 12:07:11 PM
     Author     : abhij
 --%>
 <jsp:useBean class="DB.ConnectionClass" id="con"></jsp:useBean>
@@ -10,16 +10,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Request</title>
+        <title>Booking </title>
     </head>
     <body>
         <%
-          if(request.getParameter("request")!=null){
-                       String insqry="insert into tbl_workrequest(request_details,address,work_date,request_date,worker_id,user_id)values('"+request.getParameter("txt_details")+"','"+request.getParameter("txt_address")+"','"+request.getParameter("date")+"',curdate(),'"+request.getParameter("rid")+"','"+session.getAttribute("uid")+"')";
+          if(request.getParameter("book")!=null){
+                       String insqry="insert into tbl_workpostrequest(request_details,address,work_date,request_date,workpost_id,user_id)values('"+request.getParameter("txt_details")+"','"+request.getParameter("txt_address")+"','"+request.getParameter("date")+"',curdate(),'"+request.getParameter("bid")+"','"+session.getAttribute("uid")+"')";
               con.executeCommand(insqry);
         %>
         <script>
-                alert("Request Successfull");
+                alert("Booked Successfully");
                 window.location="UserHomePage.jsp";
             </script>
          <%
@@ -45,12 +45,11 @@
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
-                        <input type="submit" name="request" value="Request">
+                        <input type="submit" name="book" value="Book">
                         <input type="reset" name="cancel" value="Cancel">
                     </td>
                 </tr>
             </table>
         </form>
     </body>
-    
 </html>

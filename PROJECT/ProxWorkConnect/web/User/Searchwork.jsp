@@ -78,7 +78,7 @@
                     <th>Name</th>
                     <th>Contact</th>
                     <th>Posted Date</th>
-                    <th>Work</th>
+                    <th>Work Gallery</th>
                     <th>Booking</th>
                 </tr>
                 <%
@@ -100,8 +100,8 @@
                          <td><%=r.getString("worker_contact")%></td>
                          <td><%=r.getString("workpost_date")%></td>
                  
-                 <td><a href="ViewWorkBooking.jsp?sid=<%=r.getString("workpost_id")%> "> View Gallery</a>
-                 <td><a href=" ">Book Now</a>
+                 <td><a href="ViewWorkGallery.jsp?sid=<%=r.getString("workpost_id")%> ">View Gallery</a>
+                 <td><a href="Booking.jsp?bid=<%=r.getString("workpost_id")%> ">Book Now</a>
                  </tr>
                   <%
                  }

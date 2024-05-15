@@ -183,7 +183,7 @@ public final class Searchwork_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</td>\n");
       out.write("                 \n");
       out.write("                 <td><a href=\"ViewWorkBooking.jsp?sid=");
-      out.print(r.getString("worker_id"));
+      out.print(r.getString("workpost_id"));
       out.write(" \"> View Gallery</a>\n");
       out.write("                 <td><a href=\" \">Book Now</a>\n");
       out.write("                 </tr>\n");

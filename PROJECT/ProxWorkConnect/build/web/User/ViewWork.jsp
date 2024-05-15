@@ -44,7 +44,7 @@
                          <td><%=rs.getString("workpost_duration")%></td>
                          <td><%=rs.getString("workpost_date")%></td>
                          
-                         <td><a href="../Worker/WorkGalleryDisplay.jsp?gid=<%=rs.getString("workpost_id")%>">ViewGallery</a></td>
+                         <td><a href="ViewWorkGallery.jsp?sid=<%=rs.getString("workpost_id")%> ">View Gallery</a></td>
                      </tr>
                      <%
                  }

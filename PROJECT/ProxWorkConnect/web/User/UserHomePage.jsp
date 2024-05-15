@@ -17,7 +17,9 @@
         <a href="UserEditProfile.jsp">EditProfile</a><br>
         <a href="UserChangePassword.jsp">ChangePassword</a><br>
         <a href="Searchworker.jsp">Labour Search</a><br>
-        <a href="Searchwork.jsp">Work Search</a>
+        <a href="Searchwork.jsp">Work Search</a><br>
+        <a href="RequestDisplay.jsp">Request Notifications</a><br>
+        <a href="BookingDisplay.jsp">Booking Notifications</a>
 
     </body>
 </html>

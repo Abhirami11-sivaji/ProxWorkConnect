@@ -95,7 +95,7 @@
                  <td><%=r.getString("worker_contact")%></td> 
                  
                  <td><a href="ViewWork.jsp?sid=<%=r.getString("worker_id")%> ">View Works</a>
-                 <td><a href=" ">Request Now</a>
+                 <td><a href="Request.jsp?rid=<%=r.getString("worker_id")%>">Request Now</a>
                  </tr>
                   <%
                  }

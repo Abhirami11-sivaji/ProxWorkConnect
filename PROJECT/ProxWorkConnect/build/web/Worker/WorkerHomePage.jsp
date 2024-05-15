@@ -17,6 +17,8 @@
         <a href="WorkerEditProfile.jsp">EditProfile</a><br>
         <a href="WorkerChangePassword.jsp">ChangePassword</a><br>
         <a href="WorkPost.jsp">Add Works</a><br>
-        <a href="WorkPostDisplay.jsp">Uploaded Works</a>
+        <a href="WorkPostDisplay.jsp">Uploaded Works</a><br>
+        <a href="RequestAction.jsp">Requests</a><br>
+         <a href="BookingAction.jsp">Bookings</a>
     </body>
 </html>
