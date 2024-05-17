@@ -22,7 +22,6 @@
                     <th>Labour</th>
                     <th>Work Date</th>
                     <th>Work Details</th>
-                    <th>Contact</th>
                     <th>Requested Date</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -40,7 +39,6 @@
                          <td><%=rs.getString("worker_name")%></td>
                          <td><%=rs.getString("work_date")%></td>
                          <td><%=rs.getString("request_details")%></td>
-                         <td><%=rs.getString("worker_contact")%></td>
                          <td><%=rs.getString("request_date")%></td>
                          <td>
                              <%
@@ -67,14 +65,32 @@
                        %>  </td>
                          <td>
                              <%
-                               if(rs.getString("request_status").equals("4")) 
+                               if (rs.getInt("request_status")==0)
                                 {
+                                    out.println();
+                                }
+                               else if (rs.getInt("request_status")==2)
+                                {
+                                    out.println();
+                                }
+                               else{
                               %>
-                                <a href="">Pay Now</a> 
+                              Contact : <%=rs.getString("worker_contact")%><br>
+                              <%
+                               }
+                              if(rs.getString("request_status").equals("4"))
+                              {
+                              %>  
+                              
+                              Amount : <%=rs.getString("request_amount")%><br>
+                              Remarks : <%=rs.getString("request_remarks")%><br>
+                              
+                              <a href="">Pay Now</a> 
                              <%
                                  }
                               %>
                          </td>
+                         
                      </tr>
                      <%
                  }

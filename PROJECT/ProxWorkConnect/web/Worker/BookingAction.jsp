@@ -43,6 +43,13 @@
                   response.sendRedirect("BookingAction.jsp");
          }
          }
+         if(request.getParameter("nid")!=null)
+         {
+                  String upqry="update tbl_workpostrequest set request_status='5' where request_id='"+request.getParameter("nid")+"'";
+                  if(con.executeCommand(upqry)){
+                  response.sendRedirect("BookingAction.jsp");
+         }
+         }    
         %>
         <div align="center">
         <h2>New Bookings</h2>
@@ -93,6 +100,7 @@
                     <th>Address</th>
                     <th>Contact</th>
                     <th>Requested Date</th>
+                    <th>Status</th>
                     <th>Action</th>  
                 </tr>
         <%
@@ -116,7 +124,7 @@
                     if(rs1.getString("request_status").equals("1"))
                     {
                     %>
-                    <a href="BookingAction.jsp?tid=<%=rs1.getString("request_id")%>">Start work</a>|<a href="BookingAction.jsp?rid=<%=rs1.getString("request_id")%>">Reject</a>
+                    <a href="BookingAction.jsp?tid=<%=rs1.getString("request_id")%>">Start work</a>
                     <%
                     }
                     if(rs1.getString("request_status").equals("3"))
@@ -125,13 +133,33 @@
                     <a href="BookingAction.jsp?fid=<%=rs1.getString("request_id")%>">End work</a>
                     <%
                     }
+                    if(rs1.getString("request_amount")==null){
                     if(rs1.getString("request_status").equals("4"))
                     {
-                       out.println("Waiting for payment");
-                    }
                     %>
+                    <a href="PayBooking.jsp?nid=<%=rs1.getString("request_id")%>">Pay Request</a>
+                    <%
+                    }
+                    }
+                    else
+                    {
+                    %>
+                    Amount : <%=rs1.getString("request_amount")%><br>
+                   <%
+                    out.println("Payment pending");   
+                    }
+                      %> 
                          </td>
-                        
+                     <td>
+                      <%
+                     int a = Integer.parseInt(rs1.getString("request_status"));
+                     if(a<2)
+                     {
+                     %>      
+                         <a href="BookingAction.jsp?rid=<%=rs1.getString("request_id")%>">Reject</a>
+                     <%
+                     }
+                     %></td>  
                      </tr>
                      <%
                  }

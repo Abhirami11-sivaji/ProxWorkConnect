@@ -64,10 +64,25 @@
                        %>   </td>
                          <td>
                              <%
-                               if (rs.getInt("request_status")==4) 
+                               if (rs.getInt("request_status")==0)
                                 {
+                                    out.println();
+                                }
+                               else if (rs.getInt("request_status")==2)
+                                {
+                                    out.println();
+                                }
+                               else{
                               %>
                               Contact : <%=rs.getString("worker_contact")%><br>
+                              <%
+                               }
+                              if(rs.getInt("request_status")==4)
+                              {
+                              %>  
+                              
+                              Amount : <%=rs.getString("request_amount")%><br>
+                              Remarks : <%=rs.getString("request_remarks")%><br>
                                 <a href="">Pay Now</a> 
                              <%
                                  }

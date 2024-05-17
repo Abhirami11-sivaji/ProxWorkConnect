@@ -42,6 +42,13 @@
                   if(con.executeCommand(upqry)){
                   response.sendRedirect("RequestAction.jsp");
          }
+         }
+         if(request.getParameter("nid")!=null)
+         {
+                  String upqry="update tbl_workrequest set request_status='5' where workrequest_id='"+request.getParameter("nid")+"'";
+                  if(con.executeCommand(upqry)){
+                  response.sendRedirect("RequestAction.jsp");
+         }
          }         
         %>
         <div align="center">
@@ -93,8 +100,8 @@
                     <th>Address</th>
                     <th>Contact</th>
                     <th>Requested Date</th>
-                    <th>Work Status</th>
-                    <th>Action</th> 
+                    <th>Status</th>
+                    <th>Action</th>
                      
                 </tr>
         <%
@@ -120,7 +127,7 @@
                     if(rs1.getString("request_status").equals("1"))
                     {
                     %>
-                    <a href="RequestAction.jsp?tid=<%=rs1.getString("workrequest_id")%>">Start work</a>|<a href="RequestAction.jsp?rid=<%=rs1.getString("workrequest_id")%>">Reject</a>
+                    <a href="RequestAction.jsp?tid=<%=rs1.getString("workrequest_id")%>">Start work</a>
                     <%
                     }
                     if(rs1.getString("request_status").equals("3"))
@@ -129,13 +136,35 @@
                     <a href="RequestAction.jsp?fid=<%=rs1.getString("workrequest_id")%>">End work</a>
                     <%
                     }
+                    if(rs1.getString("request_amount")==null){
                     if(rs1.getString("request_status").equals("4"))
                     {
-                       out.println("Waiting for payment");
-                    }
                     %>
+                    <a href="PayRequest.jsp?nid=<%=rs1.getString("workrequest_id")%>">Pay Request</a>
+                    <%
+                    }
+                    }
+                    else
+                    {
+                    %>
+                    Amount : <%=rs1.getString("request_amount")%><br>
+                   <%
+                    out.println("Payment pending");   
+                    }
+                      %> 
+                   
                          </td>
-                        
+                    <td>
+                     <%
+                     int a = Integer.parseInt(rs1.getString("request_status"));
+                     if(a<2)
+                     {
+                     %>      
+                             <a href="RequestAction.jsp?rid=<%=rs1.getString("workrequest_id")%>">Reject</a>
+                     <%
+                     }
+                     %>
+                     </td>
                      </tr>
                      <%
                  }

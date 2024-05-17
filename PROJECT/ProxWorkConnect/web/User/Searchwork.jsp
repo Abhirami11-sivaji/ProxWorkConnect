@@ -11,6 +11,31 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Searchwork</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+            .cont {
+                    display: flex;
+                    width: 200px;
+                    justify-content: space-between;
+            }
+            .sub {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 7px;
+                    padding: 22px;
+                    background-color: #E1F5FE;
+                    border-radius: 17px;
+            }
+            .main {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 2rem;
+            }
+        </style>
     </head>
     <body>
         <form method="post">
@@ -69,19 +94,8 @@
                     </td>
                 </tr>
         </table><br>
-                <table border="1" align="center">
-                <tr>
-                    <th>Sl.no</th>
-                    <th>Work</th>
-                    <th>Details</th>
-                    <th>Duration</th>
-                    <th>Name</th>
-                    <th>Contact</th>
-                    <th>Posted Date</th>
-                    <th>Work Gallery</th>
-                    <th>Booking</th>
-                </tr>
-                <%
+        <div class="main">
+        <%
                   if(request.getParameter("search")!=null){
                  String selectqry="select * from tbl_workpost p inner join tbl_worker w on w.worker_id=p.worker_id inner join tbl_workertype t on t.workertype_id=w.workertype_id inner join tbl_place pla on pla.place_id=w.place_id inner join tbl_district d on d.district_id=pla.district_id where w.place_id='"+request.getParameter("ddlplace")+"' and t.workertype_id='"+request.getParameter("ddltype")+"'";
                  ResultSet r=con.selectCommand(selectqry);
@@ -91,23 +105,23 @@
                  {
                      i++;
                      %>
-                     <tr>
-                         <td><%=i%></td>
-                         <td><img src="../Assets/Files/WorkPostPhoto/<%=r.getString("workpost_image")%>" height="70" width="70"</td></td>
-                         <td><%=r.getString("workpost_details")%></td>
-                         <td><%=r.getString("workpost_duration")%></td>
-                         <td><%=r.getString("worker_name")%></td>
-                         <td><%=r.getString("worker_contact")%></td>
-                         <td><%=r.getString("workpost_date")%></td>
-                 
-                 <td><a href="ViewWorkGallery.jsp?sid=<%=r.getString("workpost_id")%> ">View Gallery</a>
-                 <td><a href="Booking.jsp?bid=<%=r.getString("workpost_id")%> ">Book Now</a>
-                 </tr>
-                  <%
+                     
+                         <div class="sub">
+                             <div><img src="../Assets/Files/WorkPostPhoto/<%=r.getString("workpost_image")%>" height="120" width="120"></div>
+                             <div class="cont"><div>Details</div><div><%=r.getString("workpost_details")%></div></div>
+                             <div class="cont"><div>Duration</div><div><%=r.getString("workpost_duration")%></div></div>
+                             <div class="cont"><div>Worker</div><div><%=r.getString("worker_name")%></div></div>
+                             <div class="cont"><div>Contact</div><div><%=r.getString("worker_contact")%></div></div>
+                             <div class="cont"><div>Post Date</div><div><%=r.getString("workpost_date")%></div></div>
+                             <div><a href="ViewWorkGallery.jsp?sid=<%=r.getString("workpost_id")%> ">View Gallery</a></div>
+                             <div><i class="fa-regular fa-heart" style="font-size: 20px;font-size: 20px;margin-left: -76px;margin-right: 55px;" onclick="wishList(<%=r.getString("workpost_id")%>)"></i><a href="Booking.jsp?bid=<%=r.getString("workpost_id")%> ">Book Now</a></div>
+                         </div>
+                     <%
                  }
                   }
                   %>
-        </table>        
+                   </div>
+                       
     </form>
     </body>
     <script src="../Assets/JQuery/jQuery.js"></script>         
@@ -117,6 +131,20 @@
                               
                            //  alert(did);  
                                 $.ajax({url:"../Assets/AjaxPages/AjaxPlaces.jsp?pid=" + did,
+                                success: function(result){
+                                    $("#selplace").html(result);
+                                }
+                            })
+                            }
+                           
+                        </script>
+                        <script src="../Assets/JQuery/jQuery.js"></script>         
+                            <script>
+                              function wishList(did)
+                            {
+                              
+                           //  alert(did);  
+                                $.ajax({url:"../Assets/AjaxPages/AjaxWishlist.jsp?pid=" + did,
                                 success: function(result){
                                     $("#selplace").html(result);
                                 }
