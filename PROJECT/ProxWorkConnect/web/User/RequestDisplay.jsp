@@ -80,12 +80,15 @@
                                }
                               if(rs.getString("request_status").equals("4"))
                               {
+                               int worker_amt=Integer.parseInt(rs.getString("request_amount"));
+                               int perc=(worker_amt/100)*10;
+                               int total=worker_amt+perc;
                               %>  
                               
-                              Amount : <%=rs.getString("request_amount")%><br>
+                              Amount : <%out.println(total);%><br>
                               Remarks : <%=rs.getString("request_remarks")%><br>
                               
-                              <a href="">Pay Now</a> 
+                              <a href="Payment.jsp">Pay Now</a> 
                              <%
                                  }
                               %>

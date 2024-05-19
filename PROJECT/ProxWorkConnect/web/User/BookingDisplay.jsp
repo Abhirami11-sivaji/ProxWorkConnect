@@ -86,7 +86,7 @@
                               
                               Amount : <%out.println(total);%><br>
                               Remarks : <%=rs.getString("request_remarks")%><br>
-                                <a href="">Pay Now</a> 
+                                <a href="Payment.jsp">Pay Now</a> 
                              <%
                                  }
                               %>
