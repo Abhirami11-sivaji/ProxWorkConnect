@@ -45,8 +45,17 @@
                        session.setAttribute("aname",rs3.getString("admin_name"));
                        response.sendRedirect("../Admin/AdminHomePage.jsp");
                      }
-           }
-        %>
+              else {
+                    %>
+                    <script>
+                      alert("Invalid credentilas");
+                      window.location = "Login.jsp";//password thettiya same pg illot varan
+                    </script>
+            <%
+                }
+             } 
+            %>
+       
                 
         <form method="post">
         <table border="3" align="center">

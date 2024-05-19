@@ -94,9 +94,20 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
                        session.setAttribute("aname",rs3.getString("admin_name"));
                        response.sendRedirect("../Admin/AdminHomePage.jsp");
                      }
-           }
-        
+              else {
+                    
       out.write("\n");
+      out.write("                    <script>\n");
+      out.write("                      alert(\"Invalid credentilas\");\n");
+      out.write("                      window.location = \"Login.jsp\";//password thettiya same pg illot varan\n");
+      out.write("                    </script>\n");
+      out.write("            ");
+
+                }
+             } 
+            
+      out.write("\n");
+      out.write("       \n");
       out.write("                \n");
       out.write("        <form method=\"post\">\n");
       out.write("        <table border=\"3\" align=\"center\">\n");

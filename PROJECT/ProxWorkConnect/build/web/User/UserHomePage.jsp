@@ -19,7 +19,8 @@
         <a href="Searchworker.jsp">Labour Search</a><br>
         <a href="Searchwork.jsp">Work Search</a><br>
         <a href="RequestDisplay.jsp">Request Notifications</a><br>
-        <a href="BookingDisplay.jsp">Booking Notifications</a>
+        <a href="BookingDisplay.jsp">Booking Notifications</a><br>
+        <a href="Wishlist.jsp">Wishlist</a>
 
     </body>
 </html>

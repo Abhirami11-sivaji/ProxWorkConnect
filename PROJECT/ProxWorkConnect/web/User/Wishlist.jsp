@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Searchwork
-    Created on : 29 Feb, 2024, 11:07:43 PM
+    Document   : Wishlist
+    Created on : 18 May, 2024, 12:48:03 PM
     Author     : abhij
 --%>
 <jsp:useBean class="DB.ConnectionClass" id="con"></jsp:useBean>
@@ -10,8 +10,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Searchwork</title>
-        <style>
+        <title>My Wishlist</title>
+    </head>
+    <style>
         .fa-heart {
             font-size: 20px;
             margin-left: -76px;
@@ -54,70 +55,12 @@
             }
         </style>
     </head>
+    
     <body>
-        <form method="post">
-        <table border="3" align="center">
-         <tr>
-                    <td>District</td>
-                    <td>
-                        <select name="ddldis" onchange="getPlace(this.value)" required>
-                            <option>--select--</option>
-                            <%
-                              String selqry1="select * from tbl_district";
-                              ResultSet rs1=con.selectCommand(selqry1);
-                              while(rs1.next())
-                              {
-                              
-                            %>
-                            <option value="<%=rs1.getString("district_id")%>"><%=rs1.getString("district_name")%></option>
-                            <%
-                              }
-                            %>
-                            
-                        </select>
-                    </td>
-                <tr>
-                    <td>Place</td>
-                    <td>
-                        <select name="ddlplace" id="selplace" required>
-                            <option>--select--</option>
-                            
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Worker Type</td>
-                    <td>
-                        <select name="ddltype" required>
-                            <option>--select--</option>
-                            <%
-                              String selqry2="select * from tbl_workertype";
-                              ResultSet rs2=con.selectCommand(selqry2);
-                              while(rs2.next())
-                              {
-                              
-                            %>
-                            <option value="<%=rs2.getString("workertype_id")%>"><%=rs2.getString("workertype_name")%></option>
-                            <%
-                              }
-                            %>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                        <input type="submit" name="search" value="Search">
-                        <input type="reset" name="cancel" value="Cancel">
-                    </td>
-                </tr>
-        </table><br>
         <div class="main">
         <%
-                  String selectqry="select * from tbl_workpost p inner join tbl_worker w on w.worker_id=p.worker_id inner join tbl_workertype t on t.workertype_id=w.workertype_id inner join tbl_place pla on pla.place_id=w.place_id inner join tbl_district d on d.district_id=pla.district_id";
-                  if(request.getParameter("search")!=null){
-                 selectqry="select * from tbl_workpost p inner join tbl_worker w on w.worker_id=p.worker_id inner join tbl_workertype t on t.workertype_id=w.workertype_id inner join tbl_place pla on pla.place_id=w.place_id inner join tbl_district d on d.district_id=pla.district_id where w.place_id='"+request.getParameter("ddlplace")+"' and t.workertype_id='"+request.getParameter("ddltype")+"'";
-                  }
-                 ResultSet r=con.selectCommand(selectqry);
+             String sqry="select * from tbl_workpost p inner join tbl_wishlist l on l.workpost_id=p.workpost_id inner join tbl_worker w on w.worker_id=p.worker_id";  
+             ResultSet r=con.selectCommand(sqry);
                 
                  int i=0;
                  while(r.next())
@@ -137,9 +80,9 @@
                                     <%
                                      String clr = "";
                                      String post_id=r.getString("workpost_id");
-                                     String sqry="select count(*) as count from tbl_wishlist where workpost_id='"+post_id+"' and user_id='"+session.getAttribute("uid")+"'";
+                                     String selqry="select count(*) as count from tbl_wishlist where workpost_id='"+post_id+"' and user_id='"+session.getAttribute("uid")+"'";
                                      //out.print(sqry);
-                                     ResultSet rs=con.selectCommand(sqry);   
+                                     ResultSet rs=con.selectCommand(selqry);   
                                      rs.next();
                                      int count = Integer.parseInt(rs.getString("count"));
                                      if(count>0)
@@ -155,32 +98,17 @@
                 
                   %>
                    </div>
-                       
-    </form>
     </body>
     <script src="../Assets/JQuery/jQuery.js"></script>         
-                            <script>
-                              function getPlace(did)
-                            {                                                    
-                                $.ajax({url:"../Assets/AjaxPages/AjaxPlaces.jsp?pid=" + did,
-                                success: function(result){
-                                    $("#selplace").html(result);
-                                }
-                            })
-                            }
-                           
-                        </script>
-                        <script src="../Assets/JQuery/jQuery.js"></script>         
                             <script>
                               function wishList(did)
                             {
                                 $.ajax({url:"../Assets/AjaxPages/AjaxWishlist.jsp?pid=" + did,
                                 success: function(result){
-                                    
+                                 window.location="Wishlist.jsp";   
                                 }
                             })
                             }
                            
                         </script>
 </html>
-

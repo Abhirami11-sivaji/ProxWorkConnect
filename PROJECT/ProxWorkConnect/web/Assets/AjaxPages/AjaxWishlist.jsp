@@ -21,6 +21,7 @@
               String delqry="delete from tbl_wishlist where workpost_id='"+request.getParameter("pid")+"' and user_id='"+session.getAttribute("uid")+"'";
               con.executeCommand(delqry);
 //              out.println("delete");
+              
             }
             else
             {
