@@ -34,6 +34,12 @@
                         <input type="text" name="duration" placeholder="Enter duration of work" required>
                     </td>
                 </tr>
+                <tr>
+                   <td>Estimated amount</td>
+                    <td>
+                        <input type="text" name="workpostamt" placeholder="Estimated amount of the work" required>
+                    </td>
+                </tr>
        <tr>
                     <td colspan="2" align="center">
                         <input type="submit" name="save" value="Save">

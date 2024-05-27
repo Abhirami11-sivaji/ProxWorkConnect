@@ -19,6 +19,7 @@
         <a href="WorkPost.jsp">Add Works</a><br>
         <a href="WorkPostDisplay.jsp">Uploaded Works</a><br>
         <a href="RequestAction.jsp">Requests</a><br>
-         <a href="BookingAction.jsp">Bookings</a>
+        <a href="BookingAction.jsp">Bookings</a><br>
+       
     </body>
 </html>

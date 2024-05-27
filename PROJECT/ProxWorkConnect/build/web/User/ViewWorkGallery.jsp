@@ -34,7 +34,7 @@
                      %>
                      <tr>
                          <td><%=i%></td>
-                         <td><img src="../Assets/Files/WorkPostGallery/<%=rs.getString("gallery_image")%>" height="90" width="90"</td>
+                         <td><img src="../Assets/Files/WorkPostGallery/<%=rs.getString("gallery_image")%>" height="90" width="90"></td>
                          
                      </tr>
                      <%

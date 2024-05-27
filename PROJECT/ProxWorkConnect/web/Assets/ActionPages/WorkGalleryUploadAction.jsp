@@ -109,7 +109,7 @@
         <script type="text/javascript" >
             alert("Upload Successfully..");
             setTimeout(function() {
-                window.location.href = '../../Worker/WorkGallery.jsp?pid=<%=value[0]%>'
+                window.location.href = '../../Worker/WorkPostDisplay.jsp?pid=<%=value[0]%>'
             }, 100);
         </script>
         <%

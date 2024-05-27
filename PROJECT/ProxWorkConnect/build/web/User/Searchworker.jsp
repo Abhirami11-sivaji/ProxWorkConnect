@@ -72,10 +72,12 @@
                 <table border="1" align="center">
                 <tr>
                     <th>Sl.no</th>
+                    <th>Photo</th>
                     <th>Name</th>
                     <th>Workertype</th>
                     <th>Contact</th>
                     <th>Works</th>
+                    <th>Ratings</th>
                     <th>Request</th>
                 </tr>
                 <%
@@ -90,12 +92,14 @@
                      %>
                      <tr>
                          <td><%=i%></td>
+                         <td><img src="../Assets/Files/Workerphoto/<%=r.getString("worker_photo")%>" style="border-radius:50%" width="80" height="80"/><br /><br /></td>
                    <td><%=r.getString("worker_name")%></td> 
                  <td><%=r.getString("workertype_name")%></td> 
                  <td><%=r.getString("worker_contact")%></td> 
                  
-                 <td><a href="ViewWork.jsp?sid=<%=r.getString("worker_id")%> ">View Works</a>
-                 <td><a href="Request.jsp?rid=<%=r.getString("worker_id")%>">Request Now</a>
+                 <td><a href="ViewWork.jsp?sid=<%=r.getString("worker_id")%> ">View Works</a></td>
+                 <td><a href="ViewReview.jsp?gid=<%=r.getString("worker_id")%> ">View Ratings</a></td>
+                 <td><a href="Request.jsp?rid=<%=r.getString("worker_id")%>">Request Now</a></td>
                  </tr>
                   <%
                  }

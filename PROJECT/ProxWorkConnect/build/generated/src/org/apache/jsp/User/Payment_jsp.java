@@ -53,7 +53,21 @@ public final class Payment_jsp extends org.apache.jasper.runtime.HttpJspBase
           _jspx_page_context.setAttribute("con", con, PageContext.PAGE_SCOPE);
         }
       }
-      out.write("\n");
+      out.write('\n');
+
+    String preq = request.getParameter("yid");
+    String selQry="select * from tbl_workrequest where workrequest_id='"+preq+"'";
+    ResultSet rs = con.selectCommand(selQry);
+    int worker_amt,perc,total=0;
+    if(rs.next())
+    {
+       
+        worker_amt=Integer.parseInt(rs.getString("request_amount"));
+        perc=(worker_amt/100)*10;
+        total=worker_amt+perc;
+    }
+
+
       out.write("\n");
       out.write("    <!DOCTYPE html>\n");
       out.write("    <html lang=\"en\">\n");
@@ -218,44 +232,16 @@ public final class Payment_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"wrapper\">\n");
       out.write("                <h2>Payment Gateway</h2>\n");
       out.write("                <form method=\"POST\">\n");
-      out.write("                    <h4>Account</h4>\n");
+      out.write("                    \n");
       out.write("                    <div class=\"input-group\">\n");
       out.write("                        <div class=\"input-box\">\n");
-      out.write("                            <input class=\"name\" type=\"text\" name=\"txtname\" id=\"txtname\" placeholder=\"Full Name\" required=\"required\">\n");
-      out.write("                            <i class=\"fa fa-user icon\" aria-hidden=\"true\"></i>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"input-box\">\n");
-      out.write("                            <input class=\"name\" type=\"text\" name=\"txtnname\" id=\"txtnname\" placeholder=\"Nick Name\" required=\"required\">\n");
-      out.write("                            <i class=\"fa fa-user icon\" aria-hidden=\"true\"></i>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"input-group\">\n");
-      out.write("                        <div class=\"input-box\">\n");
-      out.write("                            <input class=\"name\" type=\"email\" name=\"txtemail\" id=\"txtemail\" placeholder=\"Email Address\" required=\"required\">\n");
+      out.write("                            <input class=\"name\" type=\"text\" name=\"txt_amount\" placeholder=\"Amount\" readonly=\"\" value=\"");
+      out.print(total);
+      out.write("\" required=\"required\">\n");
       out.write("                            <i class=\"fa fa-envelope icon\" aria-hidden=\"true\"></i>\n");
       out.write("                        </div>\n");
       out.write("                    </div>\t\n");
-      out.write("                    <div class=\"input-group\">\n");
-      out.write("                        <div class=\"input-box\">\n");
-      out.write("                            <input class=\"name\" type=\"number\" name=\"txt_amount\" min=\"500\" value=\"500\" id=\"txtemail\" placeholder=\"Amount\" required=\"required\">\n");
-      out.write("                            <i class=\"fa fa-envelope icon\" aria-hidden=\"true\"></i>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\t\n");
-      out.write("                    <div class=\"input-group\">\n");
-      out.write("                        <div class=\"input-box\">\n");
-      out.write("                            <h4>Date of Birth</h4>\n");
-      out.write("                            <input class=\"dob\" type=\"text\" data-mask=\"00\" name=\"txtdate\" id=\"txtdate\" placeholder=\"DD\">\n");
-      out.write("                            <input class=\"dob\" type=\"text\" data-mask=\"00\" name=\"txtmonth\" id=\"txtmonth\" placeholder=\"MM\">\n");
-      out.write("                            <input class=\"dob\" type=\"text\" data-mask=\"0000\" name=\"txtyear\" id=\"txtyear\" placeholder=\"YYYY\">\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"input-box\">\n");
-      out.write("                            <h4>Gender</h4>\n");
-      out.write("                            <input type=\"radio\" name=\"rdbgender\" id=\"male\" checked  class=\"radio\">\n");
-      out.write("                            <label for=\"male\">Male</label>\n");
-      out.write("                            <input type=\"radio\" name=\"rdbgender\" id=\"female\" class=\"radio\">\n");
-      out.write("                            <label for=\"female\">Female</label>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
+      out.write("                    \n");
       out.write("                    <div class=\"input-group\">\n");
       out.write("                        <div class=\"input-box\">\n");
       out.write("                            <h4>Payment Details</h4>\n");
@@ -294,7 +280,36 @@ public final class Payment_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </form>\n");
       out.write("            </div>\n");
       out.write("\n");
-      out.write("       \n");
+      out.write("     ");
+
+
+            if (request.getParameter("btn_pay") != null) 
+                {
+                String upQ="update tbl_workrequest set request_status='6' where workrequest_id='"+request.getParameter("yid")+"'";
+                 
+                    if(con.executeCommand(upQ))
+                   {
+                        
+      out.write("\n");
+      out.write("                    <script>\n");
+      out.write("                            alert('Payment Successfull');\n");
+      out.write("                            window.location=\"RequestDisplay.jsp\";\n");
+      out.write("                    </script>\n");
+      out.write("                    ");
+
+                }
+                else{
+                      
+      out.write("\n");
+      out.write("                        <script>\n");
+      out.write("                            alert('Payment Failed');\n");
+      out.write("                            </script>       \n");
+      out.write("                ");
+
+                    }                
+                  }
+                
+      out.write("  \n");
       out.write("    </body>\n");
       out.write("    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>\n");
       out.write("    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js'></script>\n");

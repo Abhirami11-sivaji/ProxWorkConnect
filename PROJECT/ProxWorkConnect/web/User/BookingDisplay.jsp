@@ -61,9 +61,21 @@
                                 {
                                     out.println("Work completed");
                                 }
-                       %>   </td>
+                              else if(rs.getInt("request_status")==5)
+                              {
+                                 out.println("Payment Done"); 
+                              }
+                              else if(rs.getInt("request_status")==6)
+                              {
+                                 out.println("Ended"); 
+                                 %>
+                                 <a href="ReviewWork.jsp?gid=<%=rs.getString("request_id")%>">Rate Now</a>
+                                 <%
+                              }
+                       %> 
+                         </td>
                          <td>
-                             <%
+                              <%
                                if (rs.getInt("request_status")==0)
                                 {
                                     out.println();
@@ -75,21 +87,27 @@
                                else{
                               %>
                               Contact : <%=rs.getString("worker_contact")%><br>
+                              <a href="ComplaintWork.jsp?cid=<%=rs.getString("workpost_id")%>">Complaints</a><br>
                               <%
                                }
                               if(rs.getInt("request_status")==4)
                               {
-                               int worker_amt=Integer.parseInt(rs.getString("request_amount"));
-                               int perc=(worker_amt/100)*10;
-                               int total=worker_amt+perc;
+                               int amt,perc,total=0;
+                               String worker_amt=rs.getString("workpost_amount");
+                               amt = Integer.parseInt(worker_amt);
+//                               System.out.println(worker_amt);
+                               perc=(amt/100)*5;
+                               total=amt+perc;
+//                               System.out.println(total);
+//                               System.out.println(perc);
                               %>  
                               
                               Amount : <%out.println(total);%><br>
-                              Remarks : <%=rs.getString("request_remarks")%><br>
-                                <a href="Payment.jsp">Pay Now</a> 
+                              <a href="PaymentBooking.jsp?yid=<%=rs.getString("request_id")%>">Pay Now</a>
                              <%
                                  }
                               %>
+                               
                          </td>
                      </tr>
                      <%

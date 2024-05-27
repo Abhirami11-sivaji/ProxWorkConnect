@@ -32,6 +32,7 @@
                     <th>Photo</th>
                     <th>Details</th>
                     <th>Duration</th>
+                    <th>Estimated amount</th>
                     <th>Posted Date</th>
                     <th>Action</th>
                     <th>Add More Images</th>
@@ -50,6 +51,7 @@
                          <td><img src="../Assets/Files/WorkPostPhoto/<%=rs.getString("workpost_image")%>" height="70" width="70"</td></td>
                           <td><%=rs.getString("workpost_details")%></td>
                          <td><%=rs.getString("workpost_duration")%></td>
+                         <td><%=rs.getString("workpost_amount")%></td>
                          <td><%=rs.getString("workpost_date")%></td>
                          <td><a href="WorkPostDisplay.jsp?did=<%=rs.getString("workpost_id")%>">Delete</a></td>
                          <td><a href="WorkGallery.jsp?pid=<%=rs.getString("workpost_id")%>">AddMoreImages</a></td>

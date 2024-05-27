@@ -62,14 +62,15 @@
                     
                  <tr>
                     <td>Photo</td>
-                    <td align="center">
+                    <td>
                         <input type="file" name="photo" class="text-box" required>
                     </td>
                 </tr>
                 <tr>
                     <td>Proof</td>
                     <td>
-                        <input type="file" name="proof"  class="text-box" required >
+                        <input type="file" name="proof"  class="text-box" required ><br>
+                        *Kerala Shops and Commercial Establishments Workers Welfare Board membership id.
                     </td>
                 </tr>
                 <tr>

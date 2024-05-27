@@ -113,9 +113,14 @@
                 if (status == true) {
         %>
         <script type="text/javascript" >
+            <%
+            String sel="select max(user_id) as uid from tbl_user";
+            ResultSet r=con.selectCommand(sel);
+            r.next();
+            %>
             alert("Upload Successfully..");
             setTimeout(function() {
-                window.location.href = '../../Guest/UserRegistration.jsp'
+                window.location.href = '../../Guest/PaymentReg.jsp?uid=<%=r.getString("uid")%>'
             }, 100);
         </script>
         <%

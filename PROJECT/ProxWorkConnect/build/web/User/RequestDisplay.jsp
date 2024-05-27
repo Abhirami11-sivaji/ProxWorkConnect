@@ -27,6 +27,7 @@
                     <th>Action</th>
                 </tr>
                 <%
+         
                  String selqry="select * from tbl_workrequest w inner join tbl_worker u on u.worker_id=w.worker_id";
                  ResultSet rs=con.selectCommand(selqry);
                  int i=0;
@@ -58,9 +59,24 @@
                               {
                                  out.println("Work started"); 
                               }
-                              else if(rs.getString("request_status").equals("4"))
+                              else if(rs.getString("request_status").equals("4") || rs.getString("request_status").equals("5"))//payment requested
                               {
                                  out.println("Work completed"); 
+                              }
+                              else if(rs.getString("request_status").equals("6"))//payment done
+                              {
+                                 out.println("Payment Done"); 
+                              }
+                              else if(rs.getString("request_status").equals("7"))//finished
+                              {
+                                 out.println("Ended"); 
+                                 %>
+                                 <a href="Review.jsp?gid=<%=rs.getString("workrequest_id")%>">Rate Now</a>
+                                 <%
+                              }
+                              else if(rs.getString("request_status").equals("8"))//visit site before accept
+                              {
+                                 out.println("Site will be visited"); 
                               }
                        %>  </td>
                          <td>
@@ -76,22 +92,24 @@
                                else{
                               %>
                               Contact : <%=rs.getString("worker_contact")%><br>
+                              <a href="Complaint.jsp?cid=<%=rs.getString("worker_id")%>">Complaints</a><br>
                               <%
                                }
-                              if(rs.getString("request_status").equals("4"))
+                              if(rs.getInt("request_status")==5)//payment requested
                               {
                                int worker_amt=Integer.parseInt(rs.getString("request_amount"));
-                               int perc=(worker_amt/100)*10;
+                               int perc=(worker_amt/100)*5;
                                int total=worker_amt+perc;
                               %>  
                               
                               Amount : <%out.println(total);%><br>
                               Remarks : <%=rs.getString("request_remarks")%><br>
                               
-                              <a href="Payment.jsp">Pay Now</a> 
+                              <a href="Payment.jsp?yid=<%=rs.getString("workrequest_id")%>">Pay Now</a> 
                              <%
                                  }
                               %>
+                               
                          </td>
                          
                      </tr>

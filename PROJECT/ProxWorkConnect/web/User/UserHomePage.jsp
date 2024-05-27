@@ -20,7 +20,7 @@
         <a href="Searchwork.jsp">Work Search</a><br>
         <a href="RequestDisplay.jsp">Request Notifications</a><br>
         <a href="BookingDisplay.jsp">Booking Notifications</a><br>
-        <a href="Wishlist.jsp">Wishlist</a>
-
+        <a href="Wishlist.jsp">Wishlist</a><br>
+        <a href="ComplaintStatus.jsp">My Complaints</a><br>
     </body>
 </html>

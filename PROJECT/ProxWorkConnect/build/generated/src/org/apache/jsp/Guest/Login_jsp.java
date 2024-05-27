@@ -78,10 +78,15 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
              
              if(rs1.next())
                      {
+                         if(rs1.getString("user_status").equals("0")){
+                            response.sendRedirect("PaymentReg.jsp?uid="+rs1.getString("user_id")); 
+                         }
+                        else{
                        session.setAttribute("uid",rs1.getString("user_id"));
                        session.setAttribute("uname",rs1.getString("user_name"));
                        response.sendRedirect("../User/UserHomePage.jsp");
                      }
+                     }     
              else if(rs2.next())
                      {
                        session.setAttribute("wid",rs2.getString("worker_id"));
