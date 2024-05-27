@@ -7,7 +7,7 @@
 # Server OS:                    Win32
 # Target compatibility:         ANSI SQL
 # HeidiSQL version:             4.0
-# Date/time:                    2024-02-15 16:08:38
+# Date/time:                    21-05-2024 17:01:58
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ANSI,NO_BACKSLASH_ESCAPES';*/
@@ -46,6 +46,55 @@ LOCK TABLES "tbl_admin" WRITE;
 REPLACE INTO "tbl_admin" ("admin_id", "admin_name", "admin_email", "admin_password") VALUES
 	('1','Admin one','admin1@gmail.com','Admin@01');
 /*!40000 ALTER TABLE "tbl_admin" ENABLE KEYS;*/
+UNLOCK TABLES;
+
+
+#
+# Table structure for table 'tbl_complaint'
+#
+
+CREATE TABLE /*!32312 IF NOT EXISTS*/ "tbl_complaint" (
+  "complaint_id" int(10) unsigned NOT NULL auto_increment,
+  "complaint_title" varchar(100) default NULL,
+  "complaint_content" varchar(100) default NULL,
+  "complaint_reply" varchar(100) default NULL,
+  "complaint_status" varchar(50) default '0',
+  "complaint_date" date default NULL,
+  "user_id" int(10) unsigned default NULL,
+  "worker_id" int(10) unsigned default NULL,
+  "workpost_id" int(10) unsigned default NULL,
+  PRIMARY KEY  ("complaint_id")
+) AUTO_INCREMENT=11;
+
+
+
+#
+# Dumping data for table 'tbl_complaint'
+#
+
+LOCK TABLES "tbl_complaint" WRITE;
+/*!40000 ALTER TABLE "tbl_complaint" DISABLE KEYS;*/
+REPLACE INTO "tbl_complaint" ("complaint_id", "complaint_title", "complaint_content", "complaint_reply", "complaint_status", "complaint_date", "user_id", "worker_id", "workpost_id") VALUES
+	('1','adsf','skjfn','processed','1','2024-05-20','1','8',NULL);
+REPLACE INTO "tbl_complaint" ("complaint_id", "complaint_title", "complaint_content", "complaint_reply", "complaint_status", "complaint_date", "user_id", "worker_id", "workpost_id") VALUES
+	('2','abc','jsshja','accepted','1','2024-05-21','1','11',NULL);
+REPLACE INTO "tbl_complaint" ("complaint_id", "complaint_title", "complaint_content", "complaint_reply", "complaint_status", "complaint_date", "user_id", "worker_id", "workpost_id") VALUES
+	('3','hsxhsb','hdhscbh','sdncdhdfn','1','2024-05-21','1','8',NULL);
+REPLACE INTO "tbl_complaint" ("complaint_id", "complaint_title", "complaint_content", "complaint_reply", "complaint_status", "complaint_date", "user_id", "worker_id", "workpost_id") VALUES
+	('4','abhhdn','gfshdjs',NULL,'0','2024-05-21','1','8',NULL);
+REPLACE INTO "tbl_complaint" ("complaint_id", "complaint_title", "complaint_content", "complaint_reply", "complaint_status", "complaint_date", "user_id", "worker_id", "workpost_id") VALUES
+	('5','safsdf','dsvsd',NULL,'0','2024-05-21','1','7',NULL);
+REPLACE INTO "tbl_complaint" ("complaint_id", "complaint_title", "complaint_content", "complaint_reply", "complaint_status", "complaint_date", "user_id", "worker_id", "workpost_id") VALUES
+	('6','abvgsdhgd','abcdef',NULL,'0','2024-05-21','1','10',NULL);
+REPLACE INTO "tbl_complaint" ("complaint_id", "complaint_title", "complaint_content", "complaint_reply", "complaint_status", "complaint_date", "user_id", "worker_id", "workpost_id") VALUES
+	('7','abvdg','shbcsh',NULL,'0','2024-05-21','1','7',NULL);
+REPLACE INTO "tbl_complaint" ("complaint_id", "complaint_title", "complaint_content", "complaint_reply", "complaint_status", "complaint_date", "user_id", "worker_id", "workpost_id") VALUES
+	('8','asdvhsa','sdsaj',NULL,'0','2024-05-21','1','7',NULL);
+REPLACE INTO "tbl_complaint" ("complaint_id", "complaint_title", "complaint_content", "complaint_reply", "complaint_status", "complaint_date", "user_id", "worker_id", "workpost_id") VALUES
+	('9','sadhgsa','gsdyagd',NULL,'0','2024-05-21','1','7',NULL);
+REPLACE INTO "tbl_complaint" ("complaint_id", "complaint_title", "complaint_content", "complaint_reply", "complaint_status", "complaint_date", "user_id", "worker_id", "workpost_id") VALUES
+	('10','av','abvcds','accepted','1','2024-05-21','1',NULL,'7');
+/*!40000 ALTER TABLE "tbl_complaint" ENABLE KEYS;*/
 UNLOCK TABLES;
 
 
@@ -153,6 +202,29 @@ UNLOCK TABLES;
 
 
 #
+# Table structure for table 'tbl_payrequest'
+#
+
+CREATE TABLE /*!32312 IF NOT EXISTS*/ "tbl_payrequest" (
+  "pay_id" int(100) NOT NULL auto_increment,
+  "pay_amount" varchar(100) default NULL,
+  "pay_remarks" varchar(100) default NULL,
+  "worker_id" int(100) unsigned default NULL,
+  "user_id" int(100) unsigned default NULL,
+  PRIMARY KEY  ("pay_id")
+);
+
+
+
+#
+# Dumping data for table 'tbl_payrequest'
+#
+
+# No data found.
+
+
+
+#
 # Table structure for table 'tbl_place'
 #
 
@@ -212,6 +284,45 @@ UNLOCK TABLES;
 
 
 #
+# Table structure for table 'tbl_review'
+#
+
+CREATE TABLE /*!32312 IF NOT EXISTS*/ "tbl_review" (
+  "review_id" int(100) NOT NULL auto_increment,
+  "user_name" varchar(100) default NULL,
+  "user_rating" varchar(100) default NULL,
+  "user_review" varchar(100) default NULL,
+  "review_datetime" varchar(100) default NULL,
+  "worker_id" int(10) unsigned default NULL,
+  "workpost_id" int(10) unsigned default NULL,
+  PRIMARY KEY  ("review_id")
+) AUTO_INCREMENT=7;
+
+
+
+#
+# Dumping data for table 'tbl_review'
+#
+
+LOCK TABLES "tbl_review" WRITE;
+/*!40000 ALTER TABLE "tbl_review" DISABLE KEYS;*/
+REPLACE INTO "tbl_review" ("review_id", "user_name", "user_rating", "user_review", "review_datetime", "worker_id", "workpost_id") VALUES
+	(1,'jb','3','jb','2024-05-20 14:30:47','2',NULL);
+REPLACE INTO "tbl_review" ("review_id", "user_name", "user_rating", "user_review", "review_datetime", "worker_id", "workpost_id") VALUES
+	(2,'abc','3','utgjtgjltrkgt','2024-05-20 15:08:53','5',NULL);
+REPLACE INTO "tbl_review" ("review_id", "user_name", "user_rating", "user_review", "review_datetime", "worker_id", "workpost_id") VALUES
+	(3,'Manu','3','ujdshusahfiasjc','2024-05-20 15:28:58','8',NULL);
+REPLACE INTO "tbl_review" ("review_id", "user_name", "user_rating", "user_review", "review_datetime", "worker_id", "workpost_id") VALUES
+	(4,'Manu','4','good','2024-05-21 01:30:21','5',NULL);
+REPLACE INTO "tbl_review" ("review_id", "user_name", "user_rating", "user_review", "review_datetime", "worker_id", "workpost_id") VALUES
+	(5,'Anu','3','abhhdbdjer','2024-05-21 11:58:14',NULL,'5');
+REPLACE INTO "tbl_review" ("review_id", "user_name", "user_rating", "user_review", "review_datetime", "worker_id", "workpost_id") VALUES
+	(6,'jo','2','shdasjd','2024-05-21 16:08:33',NULL,'3');
+/*!40000 ALTER TABLE "tbl_review" ENABLE KEYS;*/
+UNLOCK TABLES;
+
+
+#
 # Table structure for table 'tbl_user'
 #
 
@@ -226,8 +337,9 @@ CREATE TABLE /*!32312 IF NOT EXISTS*/ "tbl_user" (
   "user_gender" varchar(100) default NULL,
   "user_password" varchar(100) default NULL,
   "location_id" int(30) unsigned default NULL,
+  "user_status" varchar(50) default '0',
   PRIMARY KEY  ("user_id")
-) AUTO_INCREMENT=4;
+) AUTO_INCREMENT=5;
 
 
 
@@ -237,13 +349,40 @@ CREATE TABLE /*!32312 IF NOT EXISTS*/ "tbl_user" (
 
 LOCK TABLES "tbl_user" WRITE;
 /*!40000 ALTER TABLE "tbl_user" DISABLE KEYS;*/
-REPLACE INTO "tbl_user" ("user_id", "user_name", "user_contact", "user_email", "user_address", "user_dob", "user_photo", "user_gender", "user_password", "location_id") VALUES
-	(1,'Manu','9547292744','manu@gmail.com','Perumbavoor""','23102000','UserPhoto_1961.png','on','Manu@123','5');
-REPLACE INTO "tbl_user" ("user_id", "user_name", "user_contact", "user_email", "user_address", "user_dob", "user_photo", "user_gender", "user_password", "location_id") VALUES
-	(2,'Tom','9547295323','tom@gmail.com','avoly','23102000','UserPhoto_1268.png','on','Abcd*1234','5');
-REPLACE INTO "tbl_user" ("user_id", "user_name", "user_contact", "user_email", "user_address", "user_dob", "user_photo", "user_gender", "user_password", "location_id") VALUES
-	(3,'Athulya','9446738873','athulya@gmail.com','vazhakulams','11022004','UserPhoto_1953.png','on','Athulya*2002','8');
+REPLACE INTO "tbl_user" ("user_id", "user_name", "user_contact", "user_email", "user_address", "user_dob", "user_photo", "user_gender", "user_password", "location_id", "user_status") VALUES
+	(1,'Manu','9547292744','manu@gmail.com','Perumbavoor""','23102000','UserPhoto_1961.png','on','Manu@123','5','1');
+REPLACE INTO "tbl_user" ("user_id", "user_name", "user_contact", "user_email", "user_address", "user_dob", "user_photo", "user_gender", "user_password", "location_id", "user_status") VALUES
+	(2,'Tom','9547295323','tom@gmail.com','avoly','23102000','UserPhoto_1268.png','on','Abcd*1234','5','0');
+REPLACE INTO "tbl_user" ("user_id", "user_name", "user_contact", "user_email", "user_address", "user_dob", "user_photo", "user_gender", "user_password", "location_id", "user_status") VALUES
+	(3,'Athulya','9446738873','athulya@gmail.com','vazhakulams','11022004','UserPhoto_1953.png','on','Athulya*2002','8','0');
+REPLACE INTO "tbl_user" ("user_id", "user_name", "user_contact", "user_email", "user_address", "user_dob", "user_photo", "user_gender", "user_password", "location_id", "user_status") VALUES
+	(4,'Ajay','9453738562','ajay@gmail.com','Avoly','11-08-2000','UserPhoto_1836.png','on','Ajay@123','18','1');
 /*!40000 ALTER TABLE "tbl_user" ENABLE KEYS;*/
+UNLOCK TABLES;
+
+
+#
+# Table structure for table 'tbl_wishlist'
+#
+
+CREATE TABLE /*!32312 IF NOT EXISTS*/ "tbl_wishlist" (
+  "wishlist_id" int(10) unsigned NOT NULL auto_increment,
+  "user_id" int(10) unsigned default NULL,
+  "workpost_id" int(10) unsigned default NULL,
+  PRIMARY KEY  ("wishlist_id")
+) AUTO_INCREMENT=35;
+
+
+
+#
+# Dumping data for table 'tbl_wishlist'
+#
+
+LOCK TABLES "tbl_wishlist" WRITE;
+/*!40000 ALTER TABLE "tbl_wishlist" DISABLE KEYS;*/
+REPLACE INTO "tbl_wishlist" ("wishlist_id", "user_id", "workpost_id") VALUES
+	('34','1','8');
+/*!40000 ALTER TABLE "tbl_wishlist" ENABLE KEYS;*/
 UNLOCK TABLES;
 
 
@@ -283,7 +422,7 @@ REPLACE INTO "tbl_worker" ("worker_id", "worker_name", "worker_contact", "worker
 REPLACE INTO "tbl_worker" ("worker_id", "worker_name", "worker_contact", "worker_email", "worker_address", "worker_proof", "worker_doj", "worker_photo", "worker_dob", "worker_password", "place_id", "workertype_id", "worker_isactive") VALUES
 	(7,'Kiran','9632748163','sddg@mail.com','qwqe','WorkerProof_1923.png','2024-01-11','WorkerPhoto_1303.png','10021995','Kirankk*1995','5','1','1');
 REPLACE INTO "tbl_worker" ("worker_id", "worker_name", "worker_contact", "worker_email", "worker_address", "worker_proof", "worker_doj", "worker_photo", "worker_dob", "worker_password", "place_id", "workertype_id", "worker_isactive") VALUES
-	(8,'Ram','9473462874','ram@gmail.com','muvattupuzha','WorkerProof_1757.png','2024-01-12','WorkerPhoto_1855.png','12041998','Ramram@1234','5','1','1');
+	(8,'Ram','9473462874','ram@gmail.com','muvattupuzha','WorkerProof_1757.png','2024-01-12','WorkerPhoto_1855.png','12041998','Ramram@1234','4','1','1');
 REPLACE INTO "tbl_worker" ("worker_id", "worker_name", "worker_contact", "worker_email", "worker_address", "worker_proof", "worker_doj", "worker_photo", "worker_dob", "worker_password", "place_id", "workertype_id", "worker_isactive") VALUES
 	(9,'Vishnu','9446243962','vishnu@gmail.com','Keezhilam
 Ernakulam','WorkerProof_1414.png','2024-01-17','WorkerPhoto_2089.png','11091990','Vishnu@2001','5','2','0');
@@ -338,11 +477,12 @@ UNLOCK TABLES;
 CREATE TABLE /*!32312 IF NOT EXISTS*/ "tbl_workpost" (
   "workpost_id" int(100) NOT NULL auto_increment,
   "workpost_image" varchar(100) default NULL,
+  "workpost_details" varchar(200) default NULL,
   "workpost_duration" varchar(100) default NULL,
   "workpost_date" date default NULL,
   "worker_id" int(100) unsigned default NULL,
   PRIMARY KEY  ("workpost_id")
-) AUTO_INCREMENT=9;
+) AUTO_INCREMENT=13;
 
 
 
@@ -352,12 +492,18 @@ CREATE TABLE /*!32312 IF NOT EXISTS*/ "tbl_workpost" (
 
 LOCK TABLES "tbl_workpost" WRITE;
 /*!40000 ALTER TABLE "tbl_workpost" DISABLE KEYS;*/
-REPLACE INTO "tbl_workpost" ("workpost_id", "workpost_image", "workpost_duration", "workpost_date", "worker_id") VALUES
-	(5,'WorkPhoto_1188.png','2 weeks','2024-01-24','8');
-REPLACE INTO "tbl_workpost" ("workpost_id", "workpost_image", "workpost_duration", "workpost_date", "worker_id") VALUES
-	(7,'WorkPhoto_1159.png','10 days','2024-02-01','8');
-REPLACE INTO "tbl_workpost" ("workpost_id", "workpost_image", "workpost_duration", "workpost_date", "worker_id") VALUES
-	(8,'WorkPhoto_1322.png','5 days','2024-02-02','8');
+REPLACE INTO "tbl_workpost" ("workpost_id", "workpost_image", "workpost_details", "workpost_duration", "workpost_date", "worker_id") VALUES
+	(5,'WorkPhoto_1188.png',NULL,'2 weeks','2024-01-24','8');
+REPLACE INTO "tbl_workpost" ("workpost_id", "workpost_image", "workpost_details", "workpost_duration", "workpost_date", "worker_id") VALUES
+	(7,'WorkPhoto_1159.png',NULL,'10 days','2024-02-01','8');
+REPLACE INTO "tbl_workpost" ("workpost_id", "workpost_image", "workpost_details", "workpost_duration", "workpost_date", "worker_id") VALUES
+	(8,'WorkPhoto_1322.png',NULL,'5 days','2024-02-02','8');
+REPLACE INTO "tbl_workpost" ("workpost_id", "workpost_image", "workpost_details", "workpost_duration", "workpost_date", "worker_id") VALUES
+	(10,'WorkPhoto_1572.png','PAINTING','10 days','2024-03-01','8');
+REPLACE INTO "tbl_workpost" ("workpost_id", "workpost_image", "workpost_details", "workpost_duration", "workpost_date", "worker_id") VALUES
+	(11,'WorkPhoto_1137.png','gate painting','2 weeks','2024-03-01','11');
+REPLACE INTO "tbl_workpost" ("workpost_id", "workpost_image", "workpost_details", "workpost_duration", "workpost_date", "worker_id") VALUES
+	(12,'WorkPhoto_1982.png','house painting','5 days','2024-03-01','11');
 /*!40000 ALTER TABLE "tbl_workpost" ENABLE KEYS;*/
 UNLOCK TABLES;
 
@@ -371,7 +517,7 @@ CREATE TABLE /*!32312 IF NOT EXISTS*/ "tbl_workpostgallery" (
   "gallery_image" varchar(100) default NULL,
   "workpost_id" int(100) default NULL,
   PRIMARY KEY  ("workpostgallery_id")
-) AUTO_INCREMENT=35;
+) AUTO_INCREMENT=23;
 
 
 
@@ -398,6 +544,100 @@ REPLACE INTO "tbl_workpostgallery" ("workpostgallery_id", "gallery_image", "work
 REPLACE INTO "tbl_workpostgallery" ("workpostgallery_id", "gallery_image", "workpost_id") VALUES
 	(22,'WorkGallery_1671.png',7);
 /*!40000 ALTER TABLE "tbl_workpostgallery" ENABLE KEYS;*/
+UNLOCK TABLES;
+
+
+#
+# Table structure for table 'tbl_workpostrequest'
+#
+
+CREATE TABLE /*!32312 IF NOT EXISTS*/ "tbl_workpostrequest" (
+  "request_id" int(100) unsigned NOT NULL auto_increment,
+  "workpost_id" int(100) unsigned default NULL,
+  "user_id" int(100) default NULL,
+  "request_details" varchar(100) default NULL,
+  "address" varchar(100) default NULL,
+  "worker_contact_1" varchar(100) default NULL,
+  "request_date" date default NULL,
+  "work_date" varchar(100) default NULL,
+  "request_amount" varchar(100) default NULL,
+  "request_remarks" varchar(100) default NULL,
+  "request_status" varchar(100) default '0',
+  PRIMARY KEY  ("request_id")
+) AUTO_INCREMENT=9;
+
+
+
+#
+# Dumping data for table 'tbl_workpostrequest'
+#
+
+LOCK TABLES "tbl_workpostrequest" WRITE;
+/*!40000 ALTER TABLE "tbl_workpostrequest" DISABLE KEYS;*/
+REPLACE INTO "tbl_workpostrequest" ("request_id", "workpost_id", "user_id", "request_details", "address", "worker_contact_1", "request_date", "work_date", "request_amount", "request_remarks", "request_status") VALUES
+	('1','5',1,'house painting','vazhakulam',NULL,'2024-05-14','16-11-2022',NULL,NULL,NULL);
+REPLACE INTO "tbl_workpostrequest" ("request_id", "workpost_id", "user_id", "request_details", "address", "worker_contact_1", "request_date", "work_date", "request_amount", "request_remarks", "request_status") VALUES
+	('2','7',1,'house whitewashing','vazhakulam',NULL,'2024-05-14','22-05-2023',NULL,NULL,'0');
+REPLACE INTO "tbl_workpostrequest" ("request_id", "workpost_id", "user_id", "request_details", "address", "worker_contact_1", "request_date", "work_date", "request_amount", "request_remarks", "request_status") VALUES
+	('3','8',3,'Villa painting','Kalady
+',NULL,'2024-05-14','13-09-2023','1500','aaa','7');
+REPLACE INTO "tbl_workpostrequest" ("request_id", "workpost_id", "user_id", "request_details", "address", "worker_contact_1", "request_date", "work_date", "request_amount", "request_remarks", "request_status") VALUES
+	('4','10',2,'Furniture polishing','Perumbavoor',NULL,'2024-05-14','11-07-2021','500','sagdau','5');
+REPLACE INTO "tbl_workpostrequest" ("request_id", "workpost_id", "user_id", "request_details", "address", "worker_contact_1", "request_date", "work_date", "request_amount", "request_remarks", "request_status") VALUES
+	('5','7',1,'Fence painting','muvatuppuzha','94664893','2024-05-14','17-07-2020','45000','abcdghshjsd','7');
+REPLACE INTO "tbl_workpostrequest" ("request_id", "workpost_id", "user_id", "request_details", "address", "worker_contact_1", "request_date", "work_date", "request_amount", "request_remarks", "request_status") VALUES
+	('6','10',1,'Roof painting','Kothamangalam',NULL,'2024-05-14','09-06-2023',NULL,NULL,'2');
+REPLACE INTO "tbl_workpostrequest" ("request_id", "workpost_id", "user_id", "request_details", "address", "worker_contact_1", "request_date", "work_date", "request_amount", "request_remarks", "request_status") VALUES
+	('7','8',1,'House painting','Perumbavoor',NULL,'2024-05-14','20-07-2020',NULL,NULL,'2');
+REPLACE INTO "tbl_workpostrequest" ("request_id", "workpost_id", "user_id", "request_details", "address", "worker_contact_1", "request_date", "work_date", "request_amount", "request_remarks", "request_status") VALUES
+	('8','5',1,'abcdefg','Mannoor',NULL,'2024-05-18','19-04-2021',NULL,NULL,'0');
+/*!40000 ALTER TABLE "tbl_workpostrequest" ENABLE KEYS;*/
+UNLOCK TABLES;
+
+
+#
+# Table structure for table 'tbl_workrequest'
+#
+
+CREATE TABLE /*!32312 IF NOT EXISTS*/ "tbl_workrequest" (
+  "workrequest_id" int(50) NOT NULL auto_increment,
+  "worker_id" int(50) default NULL,
+  "user_id" int(100) default NULL,
+  "request_details" varchar(100) default NULL,
+  "address" varchar(100) default NULL,
+  "request_date" date default NULL,
+  "work_date" varchar(100) default NULL,
+  "request_amount" varchar(100) default NULL,
+  "request_remarks" varchar(100) default NULL,
+  "request_status" varchar(100) default '0',
+  PRIMARY KEY  ("workrequest_id")
+) AUTO_INCREMENT=10;
+
+
+
+#
+# Dumping data for table 'tbl_workrequest'
+#
+
+LOCK TABLES "tbl_workrequest" WRITE;
+/*!40000 ALTER TABLE "tbl_workrequest" DISABLE KEYS;*/
+REPLACE INTO "tbl_workrequest" ("workrequest_id", "worker_id", "user_id", "request_details", "address", "request_date", "work_date", "request_amount", "request_remarks", "request_status") VALUES
+	(1,NULL,NULL,'Need roof painting',NULL,'2024-03-04','null',NULL,NULL,'0');
+REPLACE INTO "tbl_workrequest" ("workrequest_id", "worker_id", "user_id", "request_details", "address", "request_date", "work_date", "request_amount", "request_remarks", "request_status") VALUES
+	(2,8,1,'Need gate painting',NULL,'2024-03-04','null','700','defhybdx','7');
+REPLACE INTO "tbl_workrequest" ("workrequest_id", "worker_id", "user_id", "request_details", "address", "request_date", "work_date", "request_amount", "request_remarks", "request_status") VALUES
+	(3,11,1,'Need gate painting',NULL,'2024-03-04','null','37000','xyzabc','4');
+REPLACE INTO "tbl_workrequest" ("workrequest_id", "worker_id", "user_id", "request_details", "address", "request_date", "work_date", "request_amount", "request_remarks", "request_status") VALUES
+	(5,8,1,'door furnishing',NULL,'2024-05-12','13-09-2022','600','abcd','7');
+REPLACE INTO "tbl_workrequest" ("workrequest_id", "worker_id", "user_id", "request_details", "address", "request_date", "work_date", "request_amount", "request_remarks", "request_status") VALUES
+	(6,8,1,'Roof painting',NULL,'2024-05-14','13-07-2020','1500','abdhjxns','5');
+REPLACE INTO "tbl_workrequest" ("workrequest_id", "worker_id", "user_id", "request_details", "address", "request_date", "work_date", "request_amount", "request_remarks", "request_status") VALUES
+	(7,8,1,'abc','null','2024-05-14','20-11-2020','1200','qbfhjdk','7');
+REPLACE INTO "tbl_workrequest" ("workrequest_id", "worker_id", "user_id", "request_details", "address", "request_date", "work_date", "request_amount", "request_remarks", "request_status") VALUES
+	(8,8,1,'abcd','Perumbavoor','2024-05-14','23-04-2020','500','xyz','7');
+REPLACE INTO "tbl_workrequest" ("workrequest_id", "worker_id", "user_id", "request_details", "address", "request_date", "work_date", "request_amount", "request_remarks", "request_status") VALUES
+	(9,8,1,'abvdhsghdg','muvatuppuzha','2024-05-20','20-09-2022','600','bsdhdasbxja','7');
+/*!40000 ALTER TABLE "tbl_workrequest" ENABLE KEYS;*/
 UNLOCK TABLES;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE;*/
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;*/
