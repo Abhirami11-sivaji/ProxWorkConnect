@@ -15,7 +15,7 @@
     {
        
         worker_amt=Integer.parseInt(rs.getString("request_amount"));
-        perc=(worker_amt/100)*10;
+        perc=(worker_amt/100)*5;
         total=worker_amt+perc;
     }
 
@@ -184,37 +184,14 @@
                 <h2>Payment Gateway</h2>
                 <form method="POST">
                     
-                    <div class="input-group">
-                        <div class="input-box">
-                            <input class="name" type="text" name="txt_amount" placeholder="Amount" readonly="" value="<%=total%>" required="required">
-                            <i class="fa fa-envelope icon" aria-hidden="true"></i>
-                        </div>
-                    </div>	
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/build/web/User/Payment.jsp
                     
-=======
                     <div class="input-group">
                         <div class="input-box">
                             <input class="name" type="text" name="txt_amount" placeholder="Amount" readonly="" value="<%=total%>" required="required">
                             <i class="fa fa-envelope icon" aria-hidden="true"></i>
                         </div>
                     </div>	
-                    <div class="input-group">
-                        <div class="input-box">
-                            <h4>Date of Birth</h4>
-                            <input class="dob" type="text" data-mask="00" name="txtdate" id="txtdate" placeholder="DD">
-                            <input class="dob" type="text" data-mask="00" name="txtmonth" id="txtmonth" placeholder="MM">
-                            <input class="dob" type="text" data-mask="0000" name="txtyear" id="txtyear" placeholder="YYYY">
-                        </div>
-                        <div class="input-box">
-                            <h4>Gender</h4>
-                            <input type="radio" name="rdbgender" id="male" checked  class="radio">
-                            <label for="male">Male</label>
-                            <input type="radio" name="rdbgender" id="female" class="radio">
-                            <label for="female">Female</label>
-                        </div>
-                    </div>
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/User/Payment.jsp
+                   
                     <div class="input-group">
                         <div class="input-box">
                             <h4>Payment Details</h4>

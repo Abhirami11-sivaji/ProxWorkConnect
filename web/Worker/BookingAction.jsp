@@ -46,11 +46,8 @@
          
          if(request.getParameter("fid")!=null)
          {
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/build/web/Worker/BookingAction.jsp
+
                   String upqry="update tbl_workpostrequest set request_status='6' where request_id='"+request.getParameter("fid")+"'";
-=======
-                  String upqry="update tbl_workpostrequest set request_status='7' where request_id='"+request.getParameter("fid")+"'";
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Worker/BookingAction.jsp
                   if(con.executeCommand(upqry)){
                   response.sendRedirect("BookingAction.jsp");
          }
@@ -70,7 +67,7 @@
                     <th>Action</th>
                 </tr>
                 <%
-                 String selqry="select * from tbl_workpostrequest w inner join tbl_user u on u.user_id=w.user_id where w.request_status='0'";
+                 String selqry="select * from tbl_workpostrequest w inner join tbl_user u on u.user_id=w.user_id inner join tbl_workpost wp on wp.workpost_id=w.workpost_id where w.request_status='0' and wp.worker_id='" + session.getAttribute("wid") + "'";
                  ResultSet rs=con.selectCommand(selqry);
                  int i=0;
                  while(rs.next())
@@ -109,11 +106,7 @@
                     <th>Action</th>  
                 </tr>
         <%
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/build/web/Worker/BookingAction.jsp
-                 String selqry1="select * from tbl_workpostrequest w inner join tbl_user u on u.user_id=w.user_id inner join tbl_workpost wp on wp.workpost_id=w.workpost_id where w.request_status='1' or w.request_status='3' or w.request_status='4' or w.request_status='5' or w.request_status='6'";
-=======
-                 String selqry1="select * from tbl_workpostrequest w inner join tbl_user u on u.user_id=w.user_id where w.request_status='1' or w.request_status='3' or w.request_status='4' or w.request_status='5' or w.request_status='6' or w.request_status='7'";
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Worker/BookingAction.jsp
+                 String selqry1="select * from tbl_workpostrequest w inner join tbl_user u on u.user_id=w.user_id inner join tbl_workpost wp on wp.workpost_id=w.workpost_id where (w.request_status='1' or w.request_status='3' or w.request_status='4' or w.request_status='5' or w.request_status='6') and wp.worker_id='" + session.getAttribute("wid") + "'";
                  ResultSet rs1=con.selectCommand(selqry1);
                  int j=0;
                  while(rs1.next())
@@ -142,24 +135,12 @@
                     <a href="BookingAction.jsp?eid=<%=rs1.getString("request_id")%>">End work</a>
                     <%
                     }
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/build/web/Worker/BookingAction.jsp
-                     else if(rs1.getString("request_status").equals("4"))//if work ended
-=======
-                    else if(rs1.getString("request_status").equals("6"))
-                    {
-                        out.println("Payment Received");
-                    }
-                    else if(rs1.getString("request_status").equals("7"))
-                    {
-                        out.println("Completed");
-                    }
-                    
-                    else if(rs1.getString("request_status").equals("4"))
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Worker/BookingAction.jsp
+
+                    else if(rs1.getString("request_status").equals("4"))//if work ended
                     {
                    
                     %>
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/build/web/Worker/BookingAction.jsp
+
                     Amount : <%=rs1.getString("workpost_amount")%><br>
                    <%
                     out.println("Payment pending");   
@@ -172,19 +153,7 @@
                     {
                         out.println("Completed");
                     }
-=======
-                    <a href="PayBooking.jsp?nid=<%=rs1.getString("request_id")%>">Pay Request</a>
-                    <%
-                    }
-                    else
-                    {
-                    %>
-                    Amount : <%=rs1.getString("request_amount")%><br>
-                   <%
-                    out.println("Payment pending");   
-                    }
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Worker/BookingAction.jsp
-                 
+
                     %>
                          </td>
                      <td>
@@ -196,11 +165,9 @@
                              <a href="BookingAction.jsp?rid=<%=rs1.getString("request_id")%>">Reject</a>
                      <%
                      }
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/build/web/Worker/BookingAction.jsp
+
                     if(rs1.getString("request_status").equals("5"))
-=======
-                    if(rs1.getString("request_status").equals("6"))
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Worker/BookingAction.jsp
+
                     {
                     %>
                          <a href="BookingAction.jsp?fid=<%=rs1.getString("request_id")%>">Finish</a>
@@ -226,7 +193,7 @@
                     <th>Action</th>   
                 </tr>
         <%
-                 String selqry2="select * from tbl_workpostrequest w inner join tbl_user u on u.user_id=w.user_id where w.request_status='2'";
+                 String selqry2="select * from tbl_workpostrequest w inner join tbl_user u on u.user_id=w.user_id inner join tbl_workpost wp on wp.workpost_id=w.workpost_id where w.request_status='2' and wp.worker_id='" + session.getAttribute("wid") + "'";
                  ResultSet rs2=con.selectCommand(selqry2);
                  int k=0;
                  while(rs2.next())

@@ -21,7 +21,7 @@
                         %>
                         <script>
                             alert("Updated");
-                            window.location="WorkerEditProfile.jsp";
+                            window.location="WorkerHomePage.jsp";
                         </script>
                         <%
                     }   
@@ -64,7 +64,7 @@
                 
                 
                  <tr><td>Address</td>
-                     <td><textarea name="address" rows="3" cols="20" required><%=editaddress%>"</textarea>
+                     <td><textarea name="address" rows="3" cols="20" required><%=editaddress%></textarea>
                  </tr>
                  <tr>
                     <td colspan="2" align="center">

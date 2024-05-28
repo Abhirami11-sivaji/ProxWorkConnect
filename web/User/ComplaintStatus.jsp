@@ -14,7 +14,7 @@
         <title>Complaint Status</title>
     </head>
     <body>
-        <h1 align="center">Complaint Status </h1>
+        <h3 align="center">Labour Complaint Status </h3>
         <table border="1" align="center">
             <tr>
                 <th>Sl.No</th>
@@ -53,7 +53,7 @@
             %>
         </table>
         
-        <h1 align="center">Complaint Status </h1>
+        <h3 align="center">Work Complaint Status </h3>
         <table border="1" align="center">
             <tr>
                 <th>Sl.No</th>

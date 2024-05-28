@@ -26,7 +26,7 @@
                     <th>Action</th>
                 </tr>
                 <%
-                 String selqry="select * from tbl_workpostrequest w inner join tbl_workpost p on p.workpost_id=w.workpost_id inner join tbl_worker r on r.worker_id=p.worker_id";
+                 String selqry="select * from tbl_workpostrequest w inner join tbl_workpost p on p.workpost_id=w.workpost_id inner join tbl_worker r on r.worker_id=p.worker_id and w.user_id='" + session.getAttribute("uid") + "'";
                  ResultSet rs=con.selectCommand(selqry);
                  int i=0;
                  while(rs.next())
@@ -57,27 +57,19 @@
                                 {
                                     out.println("Work started");
                                 }
-                               else if (rs.getInt("request_status")==4 || rs.getInt("request_status")==5)
+                               else if (rs.getInt("request_status")==4)
                                 {
                                     out.println("Work completed");
                                 }
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/build/web/User/BookingDisplay.jsp
                               else if(rs.getInt("request_status")==5)
                               {
                                  out.println("Payment Done"); 
                               }
                               else if(rs.getInt("request_status")==6)
-=======
-                              else if(rs.getInt("request_status")==6)
-                              {
-                                 out.println("Payment Done"); 
-                              }
-                              else if(rs.getInt("request_status")==7)
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/User/BookingDisplay.jsp
                               {
                                  out.println("Ended"); 
                                  %>
-                                 <a href="ReviewWork.jsp?gid=<%=rs.getString("request_id")%>">Rate Now</a>
+                                 <a href="ReviewWork.jsp?gid=<%=rs.getString("workpost_id")%>">Rate Now</a>
                                  <%
                               }
                        %> 
@@ -98,7 +90,7 @@
                               <a href="ComplaintWork.jsp?cid=<%=rs.getString("workpost_id")%>">Complaints</a><br>
                               <%
                                }
-                              if(rs.getInt("request_status")==5)
+                              if(rs.getInt("request_status")==4)
                               {
                                int amt,perc,total=0;
                                String worker_amt=rs.getString("workpost_amount");
@@ -111,11 +103,7 @@
                               %>  
                               
                               Amount : <%out.println(total);%><br>
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/build/web/User/BookingDisplay.jsp
-=======
-                              Remarks : <%=rs.getString("request_remarks")%><br>
-                              
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/User/BookingDisplay.jsp
+
                               <a href="PaymentBooking.jsp?yid=<%=rs.getString("request_id")%>">Pay Now</a>
                              <%
                                  }

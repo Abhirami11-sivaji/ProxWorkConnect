@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Complaint</title>
     </head>
     <body>
         <%
@@ -24,7 +24,7 @@
         %>
              <script>
                 alert("Complaint Send");
-                window.location = "UserHomePage.jsp";//password thettiya same pg illot varan
+                window.location = "UserHomePage.jsp";
              </script>
          <%
                }
@@ -32,7 +32,7 @@
          %>
              <script>
                 alert("Complaint Failed");
-                window.location = "UserHomePage.jsp";//password thettiya same pg illot varan
+                window.location = "UserHomePage.jsp";
              </script>                                                     
         <%
                }
@@ -47,7 +47,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Complaint</td>
+                    <td>Complaint content</td>
                     <td>
                         <textarea name="content" rows="6" cols="20"></textarea>
                     </td>

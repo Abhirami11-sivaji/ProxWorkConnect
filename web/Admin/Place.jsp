@@ -23,7 +23,7 @@
                  }
                  else
                  {
-                     String upqry="update tbl_place set place_name='"+request.getParameter("placename")+"',district_id='"+request.getParameter("disid")+"' where place_id='"+request.getParameter("placeid")+"'";
+                     String upqry="update tbl_place set place_name='"+request.getParameter("placename")+"',district_id='"+request.getParameter("ddist")+"' where place_id='"+request.getParameter("placeid")+"'";
                   con.executeCommand(upqry);
                   response.sendRedirect("Place.jsp");
                  }

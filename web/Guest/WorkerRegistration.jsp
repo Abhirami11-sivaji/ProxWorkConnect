@@ -76,7 +76,7 @@
                 <tr>
                     <td>DOB</td>
                     <td>
-                        <input type="text" name="dob"  class="text-box" placeholder="Enter DateOfBirth" required >
+                        <input type="date" name="dob"  class="text-box" placeholder="Enter DateOfBirth" required >
                     </td>
                 </tr>
                 <tr>

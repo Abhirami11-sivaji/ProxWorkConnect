@@ -21,10 +21,18 @@
           ResultSet rs=con.selectCommand(s);
           rs.next();
           int total_amt=Integer.parseInt(rs.getString("amount"));
-           double perc=total_amt*0.10;
+          double perc=total_amt*0.5;
+          
+          String sel="select sum(workpost_amount) as amount from tbl_workpost";
+          ResultSet rs1=con.selectCommand(sel);
+          rs1.next();
+          int amt=Integer.parseInt(rs1.getString("amount"));
+          double percent=amt*0.5;
+          double total=perc+percent;
+           
          %>
          <br>
-         COMMISSION : <%out.println(perc);%><br>
-         <a href="ViewComplaint.jsp">View Complaint</a><br>
+         COMMISSION : <%out.println(total);%><br>
+         <a href="ViewComplaint.jsp">View Complaints</a><br>
     </body>
 </html>

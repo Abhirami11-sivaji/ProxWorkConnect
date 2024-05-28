@@ -11,14 +11,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>View Complaint</title>
+        <title>View Complaints</title>
     </head>
     <body>
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/web/Admin/ViewComplaint.jsp
+
         <h3 align="center">Labour Complaints </h3>
-=======
-        <h1 align="center">Labour Complaint </h1>
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Admin/ViewComplaint.jsp
+
         <table border="1" align="center">
             <tr>
                 <th>Sl.No</th>
@@ -62,12 +60,10 @@
             %>
         </table>
 
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/web/Admin/ViewComplaint.jsp
+
         <h3 align="center">Work Complaints </h3>
-=======
-        <h1 align="center">Work Complaint </h1>
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Admin/ViewComplaint.jsp
-        <table border="1" align="center">
+
+            <table border="1" align="center">
             <tr>
                 <th>Sl.No</th>
                 <th>User Name</th> 
@@ -110,9 +106,6 @@
                 }
             %>
         </table>
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/web/Admin/ViewComplaint.jsp
-        
-=======
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Admin/ViewComplaint.jsp
+
     </body>
 </html>

@@ -51,7 +51,6 @@
                   response.sendRedirect("RequestAction.jsp");
          }
          }
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/build/web/Worker/RequestAction.jsp
           if(request.getParameter("vid")!=null)
          {
                   String upqry="update tbl_workrequest set request_status='8' where workrequest_id='"+request.getParameter("vid")+"'";
@@ -67,15 +66,7 @@
                             }
          }
                           %>
-    
-        
-              
-       
-=======
-        
-              
-        %>
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Worker/RequestAction.jsp
+
         <div align="center">
         <h2>New Requests</h2>
         <table border="1" align="center">
@@ -91,8 +82,9 @@
                     <th>Action</th>
                 </tr>
                 <%
-                 String selqry="select * from tbl_workrequest w inner join tbl_user u on u.user_id=w.user_id where w.request_status='0' or w.request_status='8' and w.worker_id='"+session.getAttribute("wid")+"'";
+                 String selqry="select * from tbl_workrequest w inner join tbl_user u on u.user_id=w.user_id where (w.request_status='0' or w.request_status='8') and w.worker_id='"+session.getAttribute("wid")+"'";
                  ResultSet rs=con.selectCommand(selqry);
+                 
                  int i=0;
                  while(rs.next())
                  {
@@ -135,11 +127,7 @@
                      
                 </tr>
         <%
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/build/web/Worker/RequestAction.jsp
-                 String selqry1="select * from tbl_workrequest w inner join tbl_user u on u.user_id=w.user_id where w.request_status='1' or w.request_status='3' or w.request_status='4'or w.request_status='5' or w.request_status='6' or w.request_status='7' and w.worker_id='"+session.getAttribute("wid")+"'";
-=======
-                 String selqry1="select * from tbl_workrequest w inner join tbl_user u on u.user_id=w.user_id where w.request_status='1' or w.request_status='3' or w.request_status='4'or w.request_status='5' or w.request_status='6' or w.request_status='7'";
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Worker/RequestAction.jsp
+                 String selqry1="select * from tbl_workrequest w inner join tbl_user u on u.user_id=w.user_id where (w.request_status='1' or w.request_status='3' or w.request_status='4'or w.request_status='5' or w.request_status='6' or w.request_status='7') and w.worker_id='"+session.getAttribute("wid")+"'";
                  ResultSet rs1=con.selectCommand(selqry1);
                  int j=0;
                  while(rs1.next())
@@ -165,38 +153,22 @@
                     <a href="RequestAction.jsp?tid=<%=rs1.getString("workrequest_id")%>">Start work</a>
                     <%
                     }
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/build/web/Worker/RequestAction.jsp
                     else if(rs1.getString("request_status").equals("3"))//if work started
-=======
-                    else if(rs1.getString("request_status").equals("3"))
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Worker/RequestAction.jsp
                     {
                     %>
                     <a href="RequestAction.jsp?eid=<%=rs1.getString("workrequest_id")%>">End work</a>
                     <%
                     }
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/build/web/Worker/RequestAction.jsp
                     else if(rs1.getString("request_status").equals("6"))//if payment done
                     {
                         out.println("Payment Received");
                     }
                     else if(rs1.getString("request_status").equals("7"))//if finished
-=======
-                    else if(rs1.getString("request_status").equals("6"))
-                    {
-                        out.println("Payment Received");
-                    }
-                    else if(rs1.getString("request_status").equals("7"))
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Worker/RequestAction.jsp
                     {
                         out.println("Completed");
                     }
-                    
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/build/web/Worker/RequestAction.jsp
                     else if(rs1.getString("request_status").equals("4"))//if work ended 
-=======
-                    else if(rs1.getString("request_status").equals("4"))
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Worker/RequestAction.jsp
+
                     {
                     %>
                     <a href="PayRequest.jsp?nid=<%=rs1.getString("workrequest_id")%>">Pay Request</a>
@@ -207,6 +179,7 @@
                     {
                     %>
                     Amount : <%=rs1.getString("request_amount")%><br>
+                    Remarks : <%=rs1.getString("request_remarks")%><br>
                    <%
                     out.println("Payment pending");   
                     }
@@ -223,11 +196,7 @@
                              <a href="RequestAction.jsp?rid=<%=rs1.getString("workrequest_id")%>">Reject</a>
                      <%
                      }
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/build/web/Worker/RequestAction.jsp
                     if(rs1.getString("request_status").equals("6"))//if payment done
-=======
-                    if(rs1.getString("request_status").equals("6"))
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Worker/RequestAction.jsp
                     {
                     %>
                          <a href="RequestAction.jsp?fid=<%=rs1.getString("workrequest_id")%>">Finish</a>

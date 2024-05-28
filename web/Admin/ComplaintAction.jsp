@@ -16,11 +16,7 @@
         <title>Complaint Action</title>
     </head>
         <body> 
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/web/Admin/ComplaintAction.jsp
             
-=======
-            <h1 align="center">Labour Complaint </h1>
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Admin/ComplaintAction.jsp
             
         <%
             String seleQry = "select * from tbl_complaint f inner join tbl_user u on f.user_id=u.user_id inner join tbl_worker w on w.worker_id=f.worker_id where f.complaint_id ='" + request.getParameter("pid") + "'";
@@ -45,20 +41,11 @@
             <%
                 }
             %>
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/web/Admin/ComplaintAction.jsp
         </table>
         
        
            <%
             String seleQry1 = "select * from tbl_complaint f inner join tbl_user u on f.user_id=u.user_id inner join tbl_workpost p on p.workpost_id=f.workpost_id inner join tbl_worker w on w.worker_id=p.worker_id where f.complaint_id ='" + request.getParameter("pid") + "'";
-=======
-        </table>    
-           
-        <h1 align="center">Work Complaint </h1>
-            
-        <%
-            String seleQry1 = "select * from tbl_complaint f inner join tbl_user u on f.user_id=u.user_id inner join tbl_workpost p on p.workpost_id=c.workpost_id inner join tbl_worker w on w.worker_id=f.worker_id where f.complaint_id ='" + request.getParameter("pid") + "'";
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Admin/ComplaintAction.jsp
             ResultSet res = con.selectCommand(seleQry1);
             if (res.next()) 
             {
@@ -80,15 +67,9 @@
             <%
                 }
             %>
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/web/Admin/ComplaintAction.jsp
         </table> 
         
-         <%
-=======
-        </table>    
-        
             <%
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Admin/ComplaintAction.jsp
             if(request.getParameter("btn_submit")!=null)
             {
                 String uq = "update tbl_complaint set complaint_reply='"+request.getParameter("reply_content")+"' where complaint_id = '"+request.getParameter("pid")+"'";
@@ -111,16 +92,8 @@
                 }
             }   
             %>
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/web/Admin/ComplaintAction.jsp
-           <form method="post" >
-=======
-            
-  
-            
-            </table>
-    </body>
+       
         <form method="post" >
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Admin/ComplaintAction.jsp
         <table border="1" align="center">
         <tr>
         <td>Complaint Reply</td>
@@ -133,7 +106,6 @@
             <input type="reset" name="btn_reset" value="Reset"</td>
         </tr>
         </table>
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/web/Admin/ComplaintAction.jsp
        
         </form>
            
@@ -141,9 +113,7 @@
             
      
     
-=======
         </form>
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Admin/ComplaintAction.jsp
     </body>
 </html>
         

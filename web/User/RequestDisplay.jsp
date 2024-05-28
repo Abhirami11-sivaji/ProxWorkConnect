@@ -28,7 +28,7 @@
                 </tr>
                 <%
          
-                 String selqry="select * from tbl_workrequest w inner join tbl_worker u on u.worker_id=w.worker_id";
+                 String selqry="select * from tbl_workrequest w inner join tbl_worker u on u.worker_id=w.worker_id where w.user_id='" + session.getAttribute("uid") + "'";
                  ResultSet rs=con.selectCommand(selqry);
                  int i=0;
                  while(rs.next())
@@ -59,8 +59,8 @@
                               {
                                  out.println("Work started"); 
                               }
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/build/web/User/RequestDisplay.jsp
-                              else if(rs.getString("request_status").equals("4") || rs.getString("request_status").equals("5"))//payment requested
+
+                             else if(rs.getString("request_status").equals("4") || rs.getString("request_status").equals("5"))//payment requested
                               {
                                  out.println("Work completed"); 
                               }
@@ -69,31 +69,17 @@
                                  out.println("Payment Done"); 
                               }
                               else if(rs.getString("request_status").equals("7"))//finished
-=======
-                              else if(rs.getString("request_status").equals("4") || rs.getString("request_status").equals("5"))
-                              {
-                                 out.println("Work completed"); 
-                              }
-                              else if(rs.getString("request_status").equals("6"))
-                              {
-                                 out.println("Payment Done"); 
-                              }
-                              else if(rs.getString("request_status").equals("7"))
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/User/RequestDisplay.jsp
                               {
                                  out.println("Ended"); 
                                  %>
-                                 <a href="Review.jsp?gid=<%=rs.getString("workrequest_id")%>">Rate Now</a>
+                                 <a href="Review.jsp?gid=<%=rs.getString("worker_id")%>">Rate Now</a>
                                  <%
                               }
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/build/web/User/RequestDisplay.jsp
                               else if(rs.getString("request_status").equals("8"))//visit site before accept
                               {
                                  out.println("Site will be visited"); 
                               }
-=======
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/User/RequestDisplay.jsp
-                       %>  </td>
+                            %>  </td>
                          <td>
                              <%
                                if (rs.getInt("request_status")==0)
@@ -110,11 +96,7 @@
                               <a href="Complaint.jsp?cid=<%=rs.getString("worker_id")%>">Complaints</a><br>
                               <%
                                }
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/build/web/User/RequestDisplay.jsp
                               if(rs.getInt("request_status")==5)//payment requested
-=======
-                              if(rs.getInt("request_status")==5)
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/User/RequestDisplay.jsp
                               {
                                int worker_amt=Integer.parseInt(rs.getString("request_amount"));
                                int perc=(worker_amt/100)*5;

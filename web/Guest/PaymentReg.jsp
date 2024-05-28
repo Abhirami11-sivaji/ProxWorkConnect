@@ -6,24 +6,7 @@
 
 <%@page import="java.sql.ResultSet"%>
 <jsp:useBean class="DB.ConnectionClass" id="con"></jsp:useBean>
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/web/Guest/PaymentReg.jsp
 
-=======
-<%
-    String preq = request.getParameter("yid");
-    String selQry="select * from tbl_workrequest where workrequest_id='"+preq+"'";
-    ResultSet rs = con.selectCommand(selQry);
-    int worker_amt,perc,total=0;
-    if(rs.next())
-    {
-       
-        worker_amt=Integer.parseInt(rs.getString("request_amount"));
-        perc=(worker_amt/100)*10;
-        total=worker_amt+perc;
-    }
-
-%>
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Guest/PaymentReg.jsp
     <!DOCTYPE html>
     <html lang="en">
         <head>
@@ -190,48 +173,20 @@
                     
                     <div class="input-group">
                         <div class="input-box">
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/web/Guest/PaymentReg.jsp
+
                             <input class="name" type="text" name="txtname" id="txtname" placeholder="Full Name" required="required">
                             <i class="fa fa-user icon" aria-hidden="true"></i>
                         </div>
-                        
-                    </div>
-                   
-=======
-                            <input class="name" type="text" name="txt_amount" placeholder="Amount" readonly="" value="<%=total%>" required="required">
-                            <i class="fa fa-envelope icon" aria-hidden="true"></i>
-                        </div>
-                    </div>	
-<<<<<<<< HEAD:PROJECT/ProxWorkConnect/web/User/Payment.jsp
-                    
-========
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Guest/PaymentReg.jsp
+                    </div>  
                     <div class="input-group">
                         <div class="input-box">
                             <input class="name" type="text" name="txt_amount" placeholder="Amount" readonly="" value="149" required="required">
                             <i class="fa fa-envelope icon" aria-hidden="true"></i>
                         </div>
                     </div>	
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/web/Guest/PaymentReg.jsp
+
                     
-=======
-                    <div class="input-group">
-                        <div class="input-box">
-                            <h4>Date of Birth</h4>
-                            <input class="dob" type="text" data-mask="00" name="txtdate" id="txtdate" placeholder="DD">
-                            <input class="dob" type="text" data-mask="00" name="txtmonth" id="txtmonth" placeholder="MM">
-                            <input class="dob" type="text" data-mask="0000" name="txtyear" id="txtyear" placeholder="YYYY">
-                        </div>
-                        <div class="input-box">
-                            <h4>Gender</h4>
-                            <input type="radio" name="rdbgender" id="male" checked  class="radio">
-                            <label for="male">Male</label>
-                            <input type="radio" name="rdbgender" id="female" class="radio">
-                            <label for="female">Female</label>
-                        </div>
-                    </div>
->>>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Guest/PaymentReg.jsp
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Guest/PaymentReg.jsp
+
                     <div class="input-group">
                         <div class="input-box">
                             <h4>Payment Details</h4>
@@ -274,30 +229,15 @@
 
             if (request.getParameter("btn_pay") != null) 
                 {
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/web/Guest/PaymentReg.jsp
                 String upQ="update tbl_user set user_status='1' where user_id='"+request.getParameter("uid")+"'";
-=======
-<<<<<<<< HEAD:PROJECT/ProxWorkConnect/web/User/Payment.jsp
-                String upQ="update tbl_workrequest set request_status='6' where workrequest_id='"+request.getParameter("yid")+"'";
-========
-                String upQ="update tbl_user set user_status='1' where user_id='"+request.getParameter("uid")+"'";
->>>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Guest/PaymentReg.jsp
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Guest/PaymentReg.jsp
-                 
+
                     if(con.executeCommand(upQ))
                    {
                         %>
                     <script>
                             alert('Payment Successfull');
-<<<<<<< HEAD:PROJECT/ProxWorkConnect/web/Guest/PaymentReg.jsp
                             window.location="Login.jsp";
-=======
-<<<<<<<< HEAD:PROJECT/ProxWorkConnect/web/User/Payment.jsp
-                            window.location="RequestDisplay.jsp";
-========
-                            window.location="Login.jsp";
->>>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Guest/PaymentReg.jsp
->>>>>>> 299d29f755245342251e0c5596d90e53eb55d09c:web/Guest/PaymentReg.jsp
+
                     </script>
                     <%
                 }

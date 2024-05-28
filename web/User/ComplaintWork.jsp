@@ -25,7 +25,7 @@
         %>
              <script>
                 alert("Complaint Send");
-              window.location = "UserHomePage.jsp";//password thettiya same pg illot varan
+              window.location = "UserHomePage.jsp";
              </script>
          <%
                }
@@ -33,7 +33,7 @@
          %>
              <script>
                 alert("Complaint Failed");
-                window.location = "UserHomePage.jsp";//password thettiya same pg illot varan
+                window.location = "UserHomePage.jsp";
              </script>                                                     
         <%
                }

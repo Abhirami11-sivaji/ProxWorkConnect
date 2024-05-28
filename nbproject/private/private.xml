@@ -4,7 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/ProxWorkConnect%20Backup/web/Admin/AdminChangePassword.jsp</file>
-            <file>file:/D:/ProxWorkConnect%20Backup/web/Guest/Complaint.jsp</file>
+            <file>file:/D:/ProxWorkConnect%20Backup/web/User/Booking.jsp</file>
+            <file>file:/D:/ProxWorkConnect%20Backup/web/Worker/PaymentBooking.jsp</file>
+            <file>file:/D:/ProxWorkConnect%20Backup/web/Assets/ActionPages/RequestUploadAction.jsp</file>
+            <file>file:/D:/ProxWorkConnect%20Backup/web/index.html</file>
+            <file>file:/D:/ProxWorkConnect%20Backup/web/Guest/Login.jsp</file>
+            <file>file:/D:/ProxWorkConnect%20Backup/web/Guest/WorkerRegistration.jsp</file>
+            <file>file:/D:/ProxWorkConnect%20Backup/web/Worker/Complaint.jsp</file>
         </group>
     </open-files>
 </project-private>
